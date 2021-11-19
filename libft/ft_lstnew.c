@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
+/*   By: katharinahammerschmidt <katharinahammer    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 15:01:40 by khammers          #+#    #+#             */
-/*   Updated: 2021/08/03 18:07:51 by khammers         ###   ########.fr       */
+/*   Updated: 2021/11/19 15:45:08 by katharinaha      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

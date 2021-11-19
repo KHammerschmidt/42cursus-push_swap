@@ -3,73 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
+/*   By: katharinahammerschmidt <katharinahammer    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 16:07:39 by khammers          #+#    #+#             */
-/*   Updated: 2021/11/12 16:05:44 by khammers         ###   ########.fr       */
+/*   Created: 2021/11/19 15:15:30 by katharinaha       #+#    #+#             */
+/*   Updated: 2021/11/19 17:19:32 by katharinaha      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_free_arr(char **arr)
+int	ft_create_node(t_struct *data, int content, t_list **head)
 {
-	int	i;
+	t_list	*node;
 
-	i = 0;
-	if (arr[i])
+	node = (t_list *)malloc(sizeof(t_list));
+	if (node == NULL)
+		return (EXIT_FAILURE);
+	node->content = content;
+	node->previous = NULL;
+	node->next = NULL;
+	if (*head == NULL)
+		*head = node;
+	else
 	{
-		free(arr[i]);
-		arr[i] = NULL;
-		i++;
-	}
-	if (arr != NULL)
-	{
-		free(arr);
-		arr = NULL;
+
 	}
 }
 
-// void	ft_error_msg(int msg, t_struct *data)
-// {
-// 	if (msg == 1)
-// 		ft_putstr_fd("Error\nSome arguments aren't integers\n", STDERR_FILENO);
-// 	if (msg == 2)
-// 		ft_putstr_fd("Error\nSome arguments are bigger than an int\n", STDERR_FILENO);
-// 	if (msg == 3)
-// 		ft_putstr_fd("Error\nSome arguments are smaller than an int\n", STDERR_FILENO);
-// 	if (msg == 4)
-// 		ft_putstr_fd("Error\nThere are duplicates in your input, this cannot be sorted", STDERR_FILENO);
-// 	// ft_free_arr(data->list_nbrs);
-// 	exit(1);
-// }
-
-int	ft_error_msg_ints(char *input, t_struct *data)
-{
-	int	nbr;
-	int	j;
-
-	j = 0;
-	nbr = ft_atoi(input);
-	if (ft_isdigit(nbr) != 0)
-		ft_putstr_fd("Error\nSome arguments aren't integers\n", STDERR_FILENO);		// ft_error_msg(1, data);
-	if (nbr < -32767) 		//INT_MIN) //has to be defined
-		ft_putstr_fd("Error\nSome arguments are bigger than an int\n", STDERR_FILENO);	// ft_error_msg(2, data);
-	if (nbr > 32767) 		//INT_MIN) //has to be defined
-		ft_putstr_fd("Error\nSome arguments are smaller than an int\n", STDERR_FILENO);	// ft_error_msg(3, data);
-	while (data->list_nbrs[j])
-	{
-		if (nbr == data->list_nbrs[j])
-		{
-			ft_putstr_fd("Error\nThere are duplicates in your input, this cannot be sorted", STDERR_FILENO);	// ft_error_msg(4, data);
-			exit(EXIT_FAILURE);
-		}
-		j++;
-	}
-	return (nbr);
-}
-
-int	ft_count_digits(t_struct *data)
+int	ft_count_nodes(t_struct *data, t_list *list)
 {
 	int		i;
 	int		j;
@@ -82,22 +43,48 @@ int	ft_count_digits(t_struct *data)
 	k = 0;
 	while (data->argv[i])
 	{
-		if (ft_strchr(data->argv[i], 34) == NULL)	//searching for "  (to see if arguments are put in as strings)
+		if (ft_is_nbr(ft_atoi(data->argv[i])) != 0)			// transform input to int format (not sure???)
 		{
-			tmp = ft_split(data->argv[i], 32);	//split the string during spaces (return **char)
-			k = 0;
-			while(tmp[k])
-			{
-				// ft_create_node(data);
-				nbr = ft_error_msg_ints(tmp[k], data);	//transform char to int (ft_atoi & error handling)
-				data->list_nbrs[j] = nbr;	//saving the transformed char in list;
-				k++;
-			}
-			ft_free_arr(tmp);
+
 		}
 		else
-			data->list_nbrs[j] = ft_atoi(data->argv[i]);
+			ft_create_node(data, data->argv[i], &head);
 
+
+		if (ft_isdigit(data->argv[i] != 0)					// test if input is a number
+		{	
+			tmp = ft_split(data->argv[i], 32);				//split the string during spaces (32) (return **char)
+			k = 0;
+			while (ft_isdigit(tmp[k]) == 0)
+				k++;
+			if (tmp[k] == NULL)
+				ft_error(1);
+			else
+			{
+
+			}
+			if (ft_strchr(tmp[k] != 0))
+				ft_error(1);
+			while (tmp[k])
+				while(tmp[k] && (ft_isdigit(tmp[k]) == 0))
+				{
+					ft_create_node(data, tmp[k], &head);
+					element = ft_lstnew(tmp[k]);			// creates a new element;
+					// ft_lstadd_back()	// adds new element to the end of the list;
+					// ft_create_node(data);
+					nbr = ft_error_msg_ints(tmp[k], data);	//transform char to int (ft_atoi & error handling)
+					data->list_nbrs[j] = nbr;	//saving the transformed char in list;
+					k++;
+				}
+				ft_free_arr(tmp);
+			}
+			else
+				ft_error_msg_ints(1);
+			
+		}
+		else
+			ft_create_node(data, data->argv[i], &head);
+			// data->list_nbrs[j] = ft_atoi(data->argv[i]);
 		data->counter++;
 		i++;
 		j++;
@@ -105,44 +92,17 @@ int	ft_count_digits(t_struct *data)
 	return (0);
 }
 
-int	ft_create_stack(t_struct *data)
+int main(int argc, char *argv[])
 {
-	t_stack stack_a;
-	t_stak stack_b;
+    t_struct	*data;
+	t_list		*list;
+
+	list = NULL;
+    initiate(data, argc, argv);
+	ft_count_nodes(data, &list);
+    // ft_create_lists(&data);
+    // 1) ft_handle_input   2) count argcs  3) create lists
 
 
+	return (EXIT_SUCCESS);
 }
-
-int	ft_handle_input(t_struct *data)
-{
-	ft_count_digits(data);
-	ft_create_stack;
-
-	// int		**stack;
-
-	// char	**tmp;
-	// int		nbr;
-
-	// ft_create_stack;
-	return (0);
-}
-
-
-
-void	ft_initialise(int argc, char *argv[], t_struct *data)
-{
-	data->argc = argc;
-	data->argv = argv;
-	data->counter = 0;
-}
-
-int	main(int argc, char *argv[])
-{
-	t_struct data;
-
-	ft_initialise(argc, argv, &data);
-	ft_handle_input(&data);
-	ft_create_stack(&data);
-	return (0);
-}
-
