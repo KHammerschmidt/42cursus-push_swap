@@ -6,11 +6,11 @@
 /*   By: katharinahammerschmidt <katharinahammer    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 15:47:18 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/11/19 16:44:14 by katharinaha      ###   ########.fr       */
+/*   Updated: 2021/11/23 13:20:07 by katharinaha      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+// #include "push_swap.h"
 
 /*
 ** Prototype: t_list	*ft_lstnew(void *content):

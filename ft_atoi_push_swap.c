@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi_push_swap.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: katharinahammerschmidt <katharinahammer    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/17 17:43:21 by khammers          #+#    #+#             */
-/*   Updated: 2021/11/23 14:53:45 by katharinaha      ###   ########.fr       */
+/*   Created: 2021/11/23 14:48:21 by katharinaha       #+#    #+#             */
+/*   Updated: 2021/11/23 15:02:54 by katharinaha      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-/*
-** Prototype: int	ft_atoi(const char *str);
-**
-** The ft_atoi() function converts the initial portion of the string pointed
-** to by 'str' to int representation.
-**
-** (1) While string consists of whitespaces or non-printable characters
-** loop through string.
-** (2) While '-' or '+' occur increment counter, if there are more than one
-** sign return (0), if sign is negative, set it to -1.
-** (3) While string consists of a number (0 to 9), convert each character
-** to int representation ( * 10 + value of string - '0').
-** (4) Return int variable multiplied by its sign.
-*/
-int	ft_atoi(const char *str)
+int	ft_atoi_ps(const char *str, t_struct *data)
 {
 	int	i;
 	int	sign;
 	int	result;
 
+	data->int_flag = 0;
 	i = 0;
 	sign = 1;
 	result = 0;
@@ -47,8 +34,14 @@ int	ft_atoi(const char *str)
 	}
 	while ((str[i] >= '0') && (str[i] <= '9'))
 	{
+		data->int_flag++;
 		result = result * 10 + str[i] - '0';
 		i++;
+	}
+	if (data->int_flag == 0)
+	{
+		ft_error(1);
+		exit(EXIT_FAILURE);
 	}
 	return (result * sign);
 }

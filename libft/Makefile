@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: khammers <khammers@student.42.fr>          +#+  +:+       +#+         #
+#    By: katharinahammerschmidt <katharinahammer    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/28 13:00:59 by khammers          #+#    #+#              #
-#    Updated: 2021/08/02 19:18:36 by khammers         ###   ########.fr        #
+#    Updated: 2021/11/23 13:28:28 by katharinaha      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,8 @@ SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memchr.c \
 	ft_strjoin.c ft_strtrim.c ft_strtrim.c ft_itoa.c ft_split.c ft_strmapi.c \
 	ft_striteri.c
 
-BONUS_SRC = ft_lstnew.c ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
-	ft_lstdelone.c ft_lstiter.c ft_lstlast.c ft_lstsize.c
+# BONUS_SRC = ft_lstnew.c ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
+# 	ft_lstdelone.c ft_lstiter.c ft_lstlast.c ft_lstsize.c
 
 OBJECTS = $(SRC:.c=.o)
 
@@ -44,5 +44,5 @@ fclean: clean
 
 re: fclean all
 
-bonus: $(BONUS_OBJECTS)
-	ar rc $(NAME) $(BONUS_OBJECTS)
+# bonus: $(BONUS_OBJECTS)
+# 	ar rc $(NAME) $(BONUS_OBJECTS)
