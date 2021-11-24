@@ -6,7 +6,7 @@
 /*   By: katharinahammerschmidt <katharinahammer    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 15:35:21 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/11/24 11:38:58 by katharinaha      ###   ########.fr       */
+/*   Updated: 2021/11/24 14:00:57 by katharinaha      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,16 @@ int		nbr_in_range(int nbr)
 		return (EXIT_FAILURE);
 }
 
-void	ft_free_lst(t_list **head)
-{
-	t_list	*tmp;
+// void	ft_free_lst(t_list **head)
+// {
+// 	t_list	*tmp;
 
-	tmp = *head;
-	while (tmp->next != *head)
-	{
+// 	tmp = *head;
+// 	while (tmp->next != *head)
+// 	{
 		
-	}
-}
+// 	}
+// }
 
 int	ft_error(int msg)
 {
@@ -74,7 +74,7 @@ int	ft_error(int msg)
 		ft_putstr_fd("Error: Arguments hold duplicates which cannot be sorted\n", STDERR_FILENO);
 	if (msg == 5)
 		ft_putstr_fd("Error: Creating doubly linked list element was unsuccesful", STDERR_FILENO);
-	ft_free_lst();
+	// ft_free_lst();
 	system("leaks push_swap");
 	return (msg);
 }

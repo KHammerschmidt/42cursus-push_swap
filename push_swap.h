@@ -6,7 +6,7 @@
 /*   By: katharinahammerschmidt <katharinahammer    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 16:07:50 by khammers          #+#    #+#             */
-/*   Updated: 2021/11/24 11:15:28 by katharinaha      ###   ########.fr       */
+/*   Updated: 2021/11/24 14:07:33 by katharinaha      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ typedef struct s_list
 	struct s_list	*prev;
 	struct s_list	*next;
 }			t_list;
+
+typedef struct s_stack
+{
+	stack is pointer to the head of the list, a counter to keep track of the size
+}				t_stack;
+
 
 typedef struct s_struct
 {
