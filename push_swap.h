@@ -6,7 +6,7 @@
 /*   By: katharinahammerschmidt <katharinahammer    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 16:07:50 by khammers          #+#    #+#             */
-/*   Updated: 2021/11/23 14:51:42 by katharinaha      ###   ########.fr       */
+/*   Updated: 2021/11/24 11:15:28 by katharinaha      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_struct
 {
 	int			argc;
 	char		**argv;
-	t_list	**list;
+	t_list		**list;
 	int			counter;
 	char		**tmp;
 	int			nbr;
@@ -47,6 +47,7 @@ typedef struct s_struct
 int		main(int argc, char *argv[]);
 void	initiate(t_struct *data, int argc, char *argv[]);
 int		ft_create_list(t_struct *data, t_list **head);
+int		ft_check_duplicates(t_list **head, t_list *node, t_struct *data);
 
 /* Util functions. */
 int	ft_error(int msg);
@@ -54,7 +55,9 @@ int		ft_duplicates(t_struct *data, int *nbr);
 int		nbr_in_range(int nbr);
 void	ft_free_arr(char **arr);
 
-int	ft_atoi_ps(const char *str, t_struct *data);
+int		ft_atoi_ps(char *str, t_struct *data);
+int 	ft_print_node(t_list **head, t_struct *data);
+int		ft_check_duplicates(t_list **head, t_list *node, t_struct *data);
 
 
 // /* Setting up lists with nodes */

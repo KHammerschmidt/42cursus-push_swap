@@ -6,13 +6,13 @@
 /*   By: katharinahammerschmidt <katharinahammer    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 14:48:21 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/11/23 15:02:54 by katharinaha      ###   ########.fr       */
+/*   Updated: 2021/11/24 10:21:51 by katharinaha      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi_ps(const char *str, t_struct *data)
+int	ft_atoi_ps(char *str, t_struct *data)
 {
 	int	i;
 	int	sign;
@@ -22,7 +22,7 @@ int	ft_atoi_ps(const char *str, t_struct *data)
 	i = 0;
 	sign = 1;
 	result = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))	// str[i] == ' '
 		i++;
 	while ((str[i] == '-') || (str[i] == '+'))
 	{
