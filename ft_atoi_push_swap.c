@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_push_swap.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: katharinahammerschmidt <katharinahammer    +#+  +:+       +#+        */
+/*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 14:48:21 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/11/24 10:21:51 by katharinaha      ###   ########.fr       */
+/*   Updated: 2021/11/29 18:42:54 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi_ps(char *str, t_struct *data)
+int	ft_atoi_ps(char *str, t_struct *data, t_list **head)
 {
 	int	i;
 	int	sign;
@@ -40,7 +40,7 @@ int	ft_atoi_ps(char *str, t_struct *data)
 	}
 	if (data->int_flag == 0)
 	{
-		ft_error(1);
+		ft_error(1, head);
 		exit(EXIT_FAILURE);
 	}
 	return (result * sign);

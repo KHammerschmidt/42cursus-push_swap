@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: katharinahammerschmidt <katharinahammer    +#+  +:+       +#+        */
+/*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 20:54:49 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/11/24 11:32:21 by katharinaha      ###   ########.fr       */
+/*   Updated: 2021/11/29 20:22:29 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,16 @@ int main(int argc, char *argv[])
 
 	data = ft_calloc(1, sizeof(t_struct));
 	if (!data)
-		return (ft_error(1));
-	if (argc < 2)						//******pdf, special cases when 1 or 2 numbers******
-		return (ft_error(data->err_msg));
+		return (ft_error(1, &head));
+	if (argc < 2)
+		return (ft_error(data->err_msg, &head));
 	head = NULL;
-    initiate(data, argc, argv);
+	initiate(data, argc, argv);
 	if (ft_create_list(data, &head) != 0)
-		return (ft_error(data->err_msg));
+		return (ft_error(data->err_msg, &head));
 	ft_print_node(&head, data);
-	system("leaks push_swap");
+
+	// ft_free_lst(&head);
+	// system("leaks push_swap");
 	return (EXIT_SUCCESS);
 }
