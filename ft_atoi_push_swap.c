@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 14:48:21 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/11/29 18:42:54 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/01 12:21:22 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_atoi_ps(char *str, t_struct *data, t_list **head)
 	i = 0;
 	sign = 1;
 	result = 0;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))	// str[i] == ' '
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	while ((str[i] == '-') || (str[i] == '+'))
 	{
@@ -43,5 +43,7 @@ int	ft_atoi_ps(char *str, t_struct *data, t_list **head)
 		ft_error(1, head);
 		exit(EXIT_FAILURE);
 	}
+	if ((result * sign) > INT_MAX || (result * sign) < INT_MIN)
+		return (ft_error(3, head));
 	return (result * sign);
 }

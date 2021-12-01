@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 16:07:50 by khammers          #+#    #+#             */
-/*   Updated: 2021/11/29 21:28:56 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/01 12:47:39 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,17 @@
 
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
+# define ERR_NR_ARGS "Error: Invalid number of arguments\n"
+# define ERR_INT_TYPE "Error: Arguments must be of type int\n"
+# define ERR_MEM "Error: Memory allocation failed\n"
+# define ERR_INT_RANGE "Error: Arguments are >INT_MAX/<INT_MIN\n"
+# define ERR_DUP "Error: Arguments hold duplicates which cannot be sorted\n"
 
 typedef struct s_list
 {
 	int				number;
-	struct s_list	*prev;
 	struct s_list	*next;
+	// struct s_list	*prev;
 }			t_list;
 
 typedef struct s_stack
@@ -46,34 +51,33 @@ typedef struct s_struct
 	int			int_flag;
 	t_list		**stack_a;
 	t_list		**stack_b;
-
-	// t_list	stack_a;
-	// t_list	stack_b;
-	// int		**int_arr;
 }			t_struct;
 
 /* Main */
 int		main(int argc, char *argv[]);
-void	initiate(t_struct *data, int argc, char *argv[]);
-int		ft_create_list(t_struct *data, t_list **head);
-int		ft_check_duplicates(t_list **head, t_list *node, t_struct *data);
-
-/* Util functions. */
-int		ft_error(int msg, t_list **head);
-int		ft_duplicates(t_struct *data, int *nbr);
-int		nbr_in_range(int nbr);
-void	ft_free_arr(char **arr);
-
-int		ft_atoi_ps(char *str, t_struct *data, t_list **head);
 int 	ft_print_node(t_list **head, t_struct *data);
-int		ft_check_duplicates(t_list **head, t_list *node, t_struct *data);
+
+/* Util functions, initialising and freeing allocated memory. */
+void	initiate(t_struct *data, int argc, char *argv[]);
+void	ft_free_arr(char **arr);
 void	ft_free_lst(t_list **head);
+
+/* Create list from input. */
+int		ft_create_list(t_struct *data, t_list **head);
+
+/* Error function. */
+int		ft_error(int msg, t_list **head);
+
+/* Check input type int, int range & duplicates. */
+int		ft_check_duplicates(t_list **head, t_list *node, t_struct *data);
+int		nbr_in_range(int nbr, t_struct *data);
 int		ft_is_nbr(char *str, t_struct *data);
 
-// /* Setting up lists with nodes */
-// int		ft_count_nodes(t_struct *data, t_list *list);
-// int		ft_create_node(t_struct *data, int content, t_list **head);
-// int		ft_split_arg_and_check_int(t_struct *data, t_list *list);
+int		ft_atoi_ps(char *str, t_struct *data, t_list **head);
+
+/* Swap functions */
+int		sa(t_struct *data);
+int		sb(t_struct *data);
 
 // /* List functions */
 // t_list	*ft_lstnew(void *content);

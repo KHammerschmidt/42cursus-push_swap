@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: katharinahammerschmidt <katharinahammer    +#+  +:+       +#+        */
+/*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 17:43:21 by khammers          #+#    #+#             */
-/*   Updated: 2021/11/23 14:53:45 by katharinaha      ###   ########.fr       */
+/*   Updated: 2021/12/01 10:41:25 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** Prototype: int	ft_atoi(const char *str);
-**
 ** The ft_atoi() function converts the initial portion of the string pointed
 ** to by 'str' to int representation.
 **

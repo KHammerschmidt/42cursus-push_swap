@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: katharinahammerschmidt <katharinahammer    +#+  +:+       +#+         #
+#    By: khammers <khammers@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/09 16:14:10 by khammers          #+#    #+#              #
-#    Updated: 2021/11/23 14:48:48 by katharinaha      ###   ########.fr        #
+#    Updated: 2021/12/01 12:40:51 by khammers         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,10 @@ NAME = push_swap
 SRC = main.c \
 	utils.c \
 	ft_create_nodes.c \
-	ft_atoi_push_swap.c
-# list_functions.c
+	ft_atoi_push_swap.c	\
+	error.c	\
+	input_testing.c	\
+	swap_operations.c
 
 OBJECTS = $(SRC:.c=.o)
 LIBFT_OBJ = ./libft/libft.a
