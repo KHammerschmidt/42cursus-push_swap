@@ -6,17 +6,17 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 14:48:21 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/12/01 12:21:22 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/02 17:49:36 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi_ps(char *str, t_struct *data, t_list **head)
+int	ft_atoi_ps(char *str, t_struct *data)
 {
-	int	i;
-	int	sign;
-	int	result;
+	int			i;
+	int			sign;
+	long int	result;
 
 	data->int_flag = 0;
 	i = 0;
@@ -40,10 +40,10 @@ int	ft_atoi_ps(char *str, t_struct *data, t_list **head)
 	}
 	if (data->int_flag == 0)
 	{
-		ft_error(1, head);
+		ft_error(1);
 		exit(EXIT_FAILURE);
 	}
 	if ((result * sign) > INT_MAX || (result * sign) < INT_MIN)
-		return (ft_error(3, head));
+		return (ft_error(3));
 	return (result * sign);
 }

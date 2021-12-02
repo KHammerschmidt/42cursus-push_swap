@@ -6,134 +6,150 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:36:10 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/12/01 12:45:50 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/02 21:14:59 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_print_node(t_list **head, t_struct *data)
-{
-	t_list	*tmp_node;
-	char	*content_list;
+// int	ft_print_node(t_list **head, t_struct *data)
+// {
+// 	t_list	*tmp_node;
+// 	char	*content_list;
 
-	tmp_node = *head;
-	content_list = NULL;
-	if (!data)
-		printf("!data");
-	while (tmp_node->next != NULL)
+// 	tmp_node = *head;
+// 	content_list = NULL;
+// 	if (!data)
+// 		printf("!data");
+// 	while (tmp_node->next != NULL)
+// 	{
+// 		content_list = ft_itoa(tmp_node->number);
+// 		write(1, content_list, ft_strlen(content_list));
+// 		write(1, " | ", 3);
+// 		tmp_node = tmp_node->next;
+// 		free(content_list);
+// 		content_list = NULL;
+// 	}
+// 	content_list = ft_itoa(tmp_node->number);
+// 	write(1, content_list, ft_strlen(content_list));
+// 	write(1, " ", 1);
+// 	free(content_list);
+// 	content_list = NULL;
+// 	return (EXIT_SUCCESS);
+// }
+
+// t_list	*ft_lstnew(int content)
+// {
+// 	t_list	*element;
+
+// 	element = (t_list *)malloc(sizeof(t_list));
+// 	if (element == NULL)
+// 		return (NULL);
+// 	element->number = content;
+// 	element->next = NULL;
+// 	return (element);
+// }
+
+int	ft_error_handling(char *str, t_list **head_a)
+{
+	int	i;
+	int	flag;
+
+	i = 0;
+	flag = 0;
+	if (head_a == NULL)
+		write(1, "YES", 3);
+	if (ft_isint(&str[i]) != 0 || ft_isrange(ft_atoi(&str[i]) != 0))
 	{
-		content_list = ft_itoa(tmp_node->number);
-		write(1, content_list, ft_strlen(content_list));
-		write(1, " | ", 3);
-		tmp_node = tmp_node->next;
-		free(content_list);
-		content_list = NULL;
+		flag ++;
+		ft_putstr_fd(ERR_INT_TYPE, STDERR_FILENO);
 	}
-	content_list = ft_itoa(tmp_node->number);
-	write(1, content_list, ft_strlen(content_list));
-	write(1, " ", 1);
-	free(content_list);
-	content_list = NULL;
-	return (EXIT_SUCCESS);
-}
-
-t_list	*ft_lstnew(int content)
-{
-	t_list	*element;
-
-	element = (t_list *)malloc(sizeof(t_list));
-	if (element == NULL)
-		return (NULL);
-	element->number = content;
-	element->next = NULL;
-	return (element);
-}
-
-static int	ft_create_node(t_struct *data, int nbr, t_list **head)
-{
-	t_list	*node;
-	t_list	*tmp_node;
-	int		j;
-
-	j = 0;
-	tmp_node = *head;
-	node = ft_lstnew(nbr);
-	if (node == NULL)
-		return (data->err_msg = 5);
-	data->counter++;
-	if (*head == NULL)
-		*head = node;
-	else
+	// if (check_dups(&head_a) != 0)
+	// {
+	// 	flag++;
+	// 	ft_putstr_fd(ERR_DUP, STDERR_FILENO);
+	// }
+	if (flag != 0)
 	{
-		while (tmp_node->next != NULL)
-			tmp_node = tmp_node->next;
-		tmp_node->next = node;
+		// ft_free(head_a);
+		ft_free_arr(&str);
+		exit (EXIT_FAILURE);
 	}
-	// printf("%p <--- head  ||  ", head);
-	// printf("%d <--- int of element || %p <--- addr of element ||  ", node->number, node);
-	// printf("%p <--- next \n", node->next);
-	if (ft_check_duplicates(head, node, data) != EXIT_SUCCESS)
-		return (data->err_msg);
-	return (EXIT_SUCCESS);
+	return (0);
 }
 
-static int	ft_create_node_from_string(t_struct *data, int i, int *j, t_list **head)
-{
-	int	k;
-
-	k = 0;
-	data->tmp = ft_split(data->argv[i], 32);
-	if (data->tmp == NULL)
-		return (data->err_msg = 2);
-	while (data->tmp[k])
-	{
-		if (ft_is_nbr(data->tmp[k], data) != 0)
-		{
-			ft_free_arr(data->tmp);
-			return (data->err_msg = 1);
-		}
-		data->nbr = ft_atoi_ps(data->tmp[k], data, head);
-		if (nbr_in_range(data->nbr, data) != 0)
-			return (data->err_msg = 3);
-		if (ft_create_node(data, data->nbr, head) != 0)
-			return (data->err_msg = 4);
-		k++;
-	}
-	ft_free_arr(data->tmp);
-	j++;
-	return (EXIT_SUCCESS);
-}
-
-int	ft_create_list(t_struct *data, t_list **head)
+int	init_stack_a(char *argv[], t_list **head_a)
 {
 	int		i;
 	int		j;
+	char	**str;
+	t_list	*node;
 
-	i = 1;
+	i = 0;
 	j = 0;
-	while (data->argv[i])
+	while (argv[i])
 	{
-		if (ft_strchr(data->argv[i], ' ') != NULL)
+		str = ft_split(argv[i], 32);
+		if (!str)
 		{
-			if (ft_create_node_from_string(data, i, &j, head) != EXIT_SUCCESS)
-				return (data->err_msg);
+			// ft_free_lst(&head_a);
+			ft_error(2);
 		}
-		else if (ft_is_nbr(data->argv[i], data) != 0)
-			return (data->err_msg);
-		else
+		while (str[j++])
 		{
-			data->nbr = ft_atoi_ps(data->argv[i], data, head);
-			if (nbr_in_range(data->nbr, data) != 0)
-				return (data->err_msg);
-			if (ft_create_node(data, data->nbr, head) != EXIT_SUCCESS)
-				return (data->err_msg);
-			j++;
+			ft_error_handling(str[j], head_a);
+			node = ft_lstnew(ft_atoi(str[j]));
+			ft_lstadd_back(&head_a, node);
 		}
+		ft_free_arr(str);
 		i++;
 	}
-	return (EXIT_SUCCESS);
+	return (0);
 }
+
+// static int	add_element(t_list **head_a, int nbr, int *stack_len)
+// {
+// 	t_list	*node;
+
+// 	node = ft_lstnew(nbr);
+// 	if (*head_a == NULL)
+// 		*head_a = node;
+// 	else
+// 		ft_lstadd_back(&head_a, node);
+// 	// printf("%p <--- head_a  ||  ", head_a);
+// 	// printf("%d <--- int of element || %p <--- addr of element ||  ", node->number, node);
+// 	// printf("%p <--- next \n", node->next);
+// 	stack_len++;
+// }
+
+// int	init_stack_a(char *argv[], t_list **head_a)
+// {
+// 	int		i;
+// 	int		j;
+// 	int		stack_len;
+
+// 	i = 1;
+// 	j = 0;
+// 	stack_len = 0;
+// 	while (argv[i])
+// 	{
+
+// 		if (ft_strchr(argv[i], ' ') != NULL)
+// 			create_lst_string(argv[i], &j, &head_a, &stack_len);
+// 		else
+// 		{
+// 			ft_isint(argv[i]);
+// 			nbr = ft_atoi(argv[i]);
+// 			ft_isrange(nbr);
+// 			add_element(&head_a, nbr, &stack_len);
+// 			if (check_dups(&head_a) != 0)
+// 				ft_error();
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// 	return (0);
+// }
 
 
 
@@ -212,5 +228,56 @@ int	ft_create_list(t_struct *data, t_list **head)
 // 	if (ft_check_duplicates(head, node, data) != EXIT_SUCCESS)
 // 		return (data->err_msg = 4);
 // 	// printf("%d <-- duplic check", ft_check_duplicates(head, node, data));
+// 	return (EXIT_SUCCESS);
+// }
+
+
+
+	// while (str[k])
+// 	{
+// 		if (ft_is_nbr(data->tmp[k], data) != 0)
+// 		{
+// 			ft_free_arr(data->tmp);
+// 			return (data->err_msg = 1);
+// 		}
+// 		data->nbr = ft_atoi_ps(data->tmp[k], data);
+// 		if (nbr_in_range(data->nbr, data) != 0)
+// 			return (data->err_msg = 3);
+// 		if (ft_create_node(data, data->nbr) != 0)
+// 			return (data->err_msg = 4);
+// 		k++;
+// 	}
+// 	ft_free_arr(data->tmp);
+// 	j++;
+// 	return (EXIT_SUCCESS);
+// }
+
+
+
+
+
+// static int	ft_create_node(t_list **head, int nbr, int stack_len)
+// {
+// 	t_list	*node;
+// 	t_list	*tmp_node;
+// 	int		j;
+
+// 	j = 0;
+
+// 	// tmp_node = *data->stack_a;
+// 	node = ft_lstnew(nbr);
+// 	if (node == NULL)
+// 		ft_error(5);
+
+// 	if (*data->stack_a == NULL)
+// 		*data->stack_a = node;
+// 	else
+// 	{
+// 		while (tmp_node->next != NULL)
+// 			tmp_node = tmp_node->next;
+// 		tmp_node->next = node;
+// 	}
+// 	if (ft_check_duplicates(data->stack_a, node, data) != EXIT_SUCCESS)
+// 		return (data->err_msg);
 // 	return (EXIT_SUCCESS);
 // }
