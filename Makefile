@@ -6,7 +6,7 @@
 #    By: khammers <khammers@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/09 16:14:10 by khammers          #+#    #+#              #
-#    Updated: 2021/12/01 12:40:51 by khammers         ###   ########.fr        #
+#    Updated: 2021/12/03 19:50:32 by khammers         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,10 @@ SRC = main.c \
 	ft_atoi_push_swap.c	\
 	error.c	\
 	input_testing.c	\
-	swap_operations.c
+	swap_operations.c	\
+	push_operations.c	\
+	rotate_operations.c	\
+	reverse_rotate_operations.c
 
 OBJECTS = $(SRC:.c=.o)
 LIBFT_OBJ = ./libft/libft.a

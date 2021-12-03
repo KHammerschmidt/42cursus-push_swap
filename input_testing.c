@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 09:59:24 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/03 13:46:25 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/03 16:44:42 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ int	check_dups(t_list **head_a, int nbr)
 		return (0);
 	while (tmp_node)
 	{
-		// if (j == len - 1)
-		// 	return (0);
 		if (tmp_node->number == nbr && j != len)
 			return (-1);
 		tmp_node = tmp_node->next;
@@ -42,7 +40,7 @@ int	check_dups(t_list **head_a, int nbr)
 int	ft_isrange(int nbr)
 {
 	if (nbr < INT_MIN || nbr > INT_MAX)
-		ft_error(3);
+		return (-1);
 	return (0);
 }
 
@@ -58,25 +56,12 @@ int	ft_isint(char *str)
 			if (ft_isdigit(str[i + 1]) == 0)
 				i++;
 			else
-				ft_error(1);
+				return (-1);
 		}
 		if (ft_isdigit(str[i]) == 0)
 			i++;
 		else
-			ft_error(1);
+			return (-1);
 	}
 	return (0);
 }
-
-// int	test_transform_int(char *str)
-// {
-// 	int	nbr;
-
-// 	nbr = 0;
-// 	if (ft_isdigit(argv[i] != 1) && ft_issign(argv[i] != 1)
-// 		ft_error(1);
-// 	nbr = ft_atoi(argv[i]);
-// 	if (nbr < INT_MIN && nbr > INT_MAX)
-// 		ft_error(3);
-// 	return (nbr);
-// }
