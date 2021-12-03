@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 09:23:56 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/08/04 09:13:08 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/03 11:29:14 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ char	**ft_split(char const *s, char c)
 	start = 0;
 	index = 0;
 	if (!s)
-		return (0);
+		return (NULL);
 	array = (char **)malloc(sizeof(char *) * (ft_counter((char *)s, c) + 1));
 	if (array == NULL)
 		return (0);

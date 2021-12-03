@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 16:28:57 by khammers          #+#    #+#             */
-/*   Updated: 2021/08/03 18:04:52 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/03 10:11:48 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@
 ** (2) while we are not at the end of the list: function f is applied to the
 ** content of element
 ** (3) and it is iterated through the list by assigning lst to the pointer to
-** the next element. 
+** the next element.
 */
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(int))
 {
 	if (!lst || !f)
 		return ;
 	while (lst != NULL)
 	{
-		(*f)(lst->content);
+		(*f)(lst->number);
 		lst = lst->next;
 	}
 }

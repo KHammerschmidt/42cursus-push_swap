@@ -6,74 +6,48 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:36:10 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/12/02 21:14:59 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/03 13:43:17 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// int	ft_print_node(t_list **head, t_struct *data)
-// {
-// 	t_list	*tmp_node;
-// 	char	*content_list;
-
-// 	tmp_node = *head;
-// 	content_list = NULL;
-// 	if (!data)
-// 		printf("!data");
-// 	while (tmp_node->next != NULL)
-// 	{
-// 		content_list = ft_itoa(tmp_node->number);
-// 		write(1, content_list, ft_strlen(content_list));
-// 		write(1, " | ", 3);
-// 		tmp_node = tmp_node->next;
-// 		free(content_list);
-// 		content_list = NULL;
-// 	}
-// 	content_list = ft_itoa(tmp_node->number);
-// 	write(1, content_list, ft_strlen(content_list));
-// 	write(1, " ", 1);
-// 	free(content_list);
-// 	content_list = NULL;
-// 	return (EXIT_SUCCESS);
-// }
-
-// t_list	*ft_lstnew(int content)
-// {
-// 	t_list	*element;
-
-// 	element = (t_list *)malloc(sizeof(t_list));
-// 	if (element == NULL)
-// 		return (NULL);
-// 	element->number = content;
-// 	element->next = NULL;
-// 	return (element);
-// }
-
-int	ft_error_handling(char *str, t_list **head_a)
+int	ft_print_node(t_list **head_a)
 {
-	int	i;
-	int	flag;
+	t_list	*tmp_node;
+	char	*content_list;
 
-	i = 0;
-	flag = 0;
-	if (head_a == NULL)
-		write(1, "YES", 3);
-	if (ft_isint(&str[i]) != 0 || ft_isrange(ft_atoi(&str[i]) != 0))
+	tmp_node = *head_a;
+	content_list = NULL;
+	while (tmp_node)
 	{
-		flag ++;
-		ft_putstr_fd(ERR_INT_TYPE, STDERR_FILENO);
+		content_list = ft_itoa(tmp_node->number);
+		write(1, content_list, ft_strlen(content_list));
+		write(1, " | ", 3);
+		tmp_node = tmp_node->next;
+		free(content_list);
+		content_list = NULL;
 	}
-	// if (check_dups(&head_a) != 0)
-	// {
-	// 	flag++;
-	// 	ft_putstr_fd(ERR_DUP, STDERR_FILENO);
-	// }
-	if (flag != 0)
+	return (0);
+}
+
+int	error_handling(char **str, int j, t_list **head_a)
+{
+	while (str[j])
 	{
-		// ft_free(head_a);
-		ft_free_arr(&str);
-		exit (EXIT_FAILURE);
+		if (ft_isint(str[j]) != 0 || ft_isrange(ft_atoi(str[j]) != 0))
+		{
+			ft_free_arr(str);
+			ft_free_lst(head_a);
+			ft_error(2);
+		}
+		if (check_dups(head_a, ft_atoi(str[j])) != 0)
+		{
+			ft_free_arr(str);
+			ft_free_lst(head_a);
+			ft_error(4);
+		}
+		j++;
 	}
 	return (0);
 }
@@ -85,21 +59,22 @@ int	init_stack_a(char *argv[], t_list **head_a)
 	char	**str;
 	t_list	*node;
 
-	i = 0;
-	j = 0;
+	i = 1;
 	while (argv[i])
 	{
-		str = ft_split(argv[i], 32);
+		str = ft_split(argv[i], ' ');
 		if (!str)
 		{
-			// ft_free_lst(&head_a);
+			ft_free_lst(head_a);
 			ft_error(2);
 		}
-		while (str[j++])
+		j = 0;
+		while (str[j])
 		{
-			ft_error_handling(str[j], head_a);
+			error_handling(str, j, head_a);
 			node = ft_lstnew(ft_atoi(str[j]));
-			ft_lstadd_back(&head_a, node);
+			ft_lstadd_back(head_a, node);
+			j++;
 		}
 		ft_free_arr(str);
 		i++;
@@ -121,6 +96,13 @@ int	init_stack_a(char *argv[], t_list **head_a)
 // 	// printf("%p <--- next \n", node->next);
 // 	stack_len++;
 // }
+
+			// printf("%p <--- head_a  ||  ", head_a);
+			// printf("%d <--- int of element || %p <--- addr of element ||  ", node->number, node);
+			// printf("%p <--- next \n", node->next);
+
+
+
 
 // int	init_stack_a(char *argv[], t_list **head_a)
 // {
@@ -154,9 +136,7 @@ int	init_stack_a(char *argv[], t_list **head_a)
 
 
 // ----------	----------	----------	----------	----------	----------	----------	----------
-// printf("%d\n", data->nbr);
-// data->int_arr[j] = ft_calloc(1, sizeof(int *));
-// data->int_arr[j] = &data->nbr;
+
 
 
 	// data->nbr = ft_atoi_ps(data->argv[i], data, head);
@@ -281,3 +261,12 @@ int	init_stack_a(char *argv[], t_list **head_a)
 // 		return (data->err_msg);
 // 	return (EXIT_SUCCESS);
 // }
+
+
+
+
+	// content_list = ft_itoa(tmp_node->number);
+	// write(1, content_list, ft_strlen(content_list));
+	// write(1, " ", 1);
+	// free(content_list);
+	// content_list = NULL;

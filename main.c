@@ -6,11 +6,12 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 20:54:49 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/12/02 21:06:28 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/03 13:53:19 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 int main(int argc, char *argv[])
 {
@@ -25,11 +26,9 @@ int main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	}
 	init_stack_a(argv, &head_a);
-	// ft_print_node(data->stack_a, data);
-	// // data->stack_a = &head;
-	// write(1,"\n", 1);
-	// // sa(data);
-	// ft_print_node(data->stack_a, data);
-	// // system("leaks push_swap");
+	ft_print_node(&head_a);
+	sa(&head_a);
+	ft_print_node(&head_a);
+	// system("leaks push_swap");
 	return (EXIT_SUCCESS);
 }

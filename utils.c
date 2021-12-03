@@ -6,38 +6,22 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 15:35:21 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/12/02 18:05:16 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/03 11:10:17 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_free_lst(t_struct *data)
+void	ft_free_lst(t_list **stack_head)
 {
-	t_list	*node;
-	t_list	*next;
+	t_list	*tmp;
 
-	if (data->stack_a != NULL)
+	tmp = *stack_head;
+	while (tmp)
 	{
-		node = *data->stack_a;
-		while (node->next != NULL)
-		{
-			next = node->next;
-			free(node);
-			node = NULL;
-			node = next;
-		}
-	}
-	if (data->stack_b != NULL)
-	{
-		node = *data->stack_b;
-		while (node->next != NULL)
-		{
-			next = node->next;
-			free(node);
-			node = NULL;
-			node = next;
-		}
+		stack_head = &(*stack_head)->next;
+		free(tmp);
+		tmp = *stack_head;
 	}
 }
 

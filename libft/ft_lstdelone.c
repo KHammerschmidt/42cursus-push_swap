@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 16:22:58 by khammers          #+#    #+#             */
-/*   Updated: 2021/08/03 17:57:56 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/03 10:10:31 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@
 ** (2) function del is applied to the content of the element lst
 ** (lst->content) and the element freed afterwards.
 */
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstdelone(t_list *lst, void (*del)(int))
 {
 	if (!lst || !del)
 		return ;
-	(del)(lst->content);
+	(del)(lst->number);
 	free(lst);
 }

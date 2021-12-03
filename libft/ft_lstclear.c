@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 16:23:26 by khammers          #+#    #+#             */
-/*   Updated: 2021/08/03 18:27:34 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/03 10:11:18 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 ** (5) when the while loop ends *lst is set to NULL to indicate the end
 ** of the list.
 */
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(int))
 {
 	t_list	*temp;
 

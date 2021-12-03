@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 16:07:50 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/02 21:13:18 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/03 13:51:09 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,14 @@ typedef struct s_struct
 
 /* Main */
 int		main(int argc, char *argv[]);
-int	init_stack_a(char *argv[], t_list **head_a);
+int		init_stack_a(char *argv[], t_list **head_a);
+int		error_handling(char **str, int j, t_list **head_a);
+void	ft_free_lst(t_list **stack_head);
+int		check_dups(t_list **head_a, int nbr);
+int		ft_print_node(t_list **head_a);
 
-int 	ft_print_node(t_list **head, t_struct *data);
+
+
 
 /* Util functions, initialising and freeing allocated memory. */
 void	initiate(t_struct *data, int argc, char *argv[]);
@@ -76,9 +81,9 @@ int ft_isint(char *str);
 int		ft_atoi_ps(char *str, t_struct *data);
 
 /* Swap functions */
-void		sa(t_struct *data);
-void		sb(t_struct *data);
-void		ss(t_struct *data);
+void		sa(t_list **head_a);
+void		sb(t_list **head_b);
+void		ss(t_list **head_a, t_list **head_b);
 
 // /* List functions */
 // t_list	*ft_lstnew(void *content);

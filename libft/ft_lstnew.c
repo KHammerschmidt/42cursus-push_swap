@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: katharinahammerschmidt <katharinahammer    +#+  +:+       +#+        */
+/*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 15:01:40 by khammers          #+#    #+#             */
-/*   Updated: 2021/11/19 15:45:08 by katharinaha      ###   ########.fr       */
+/*   Updated: 2021/12/03 10:06:15 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@
 ** end of the list.
 ** (4) the new element is returned.
 */
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*element;
 
 	element = (t_list *)malloc(sizeof(t_list));
 	if (element == NULL)
 		return (0);
-	element->content = content;
+	element->number = content;
 	element->next = NULL;
 	return (element);
 }
