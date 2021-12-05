@@ -6,7 +6,7 @@
 #    By: khammers <khammers@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/09 16:14:10 by khammers          #+#    #+#              #
-#    Updated: 2021/12/03 19:50:32 by khammers         ###   ########.fr        #
+#    Updated: 2021/12/05 16:14:34 by khammers         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,6 @@ NAME = push_swap
 SRC = main.c \
 	utils.c \
 	ft_create_nodes.c \
-	ft_atoi_push_swap.c	\
 	error.c	\
 	input_testing.c	\
 	swap_operations.c	\

@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 13:06:00 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/03 10:11:54 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/05 13:42:17 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct s_list
 {
 	int				number;
+	int				id;
 	struct s_list	*next;
 }	t_list;
 

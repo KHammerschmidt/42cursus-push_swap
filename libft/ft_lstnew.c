@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 15:01:40 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/03 10:06:15 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/05 13:45:09 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_list	*ft_lstnew(int content)
 	if (element == NULL)
 		return (0);
 	element->number = content;
+	element->id = 0;
 	element->next = NULL;
 	return (element);
 }
