@@ -6,11 +6,11 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:14:54 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/12/03 18:03:58 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/06 16:05:21 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./../push_swap.h"
 
 /* Swap the first elements at the top of stack a. Do nothing if there is only
 one or no elements. */

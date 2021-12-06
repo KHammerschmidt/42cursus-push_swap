@@ -6,11 +6,11 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:43:48 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/12/03 18:11:00 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/06 16:05:05 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./../push_swap.h"
 
 /* Take the first element at the top of b and put it at the top of a. Do
 nothing if b is empty. */

@@ -6,11 +6,11 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:43:07 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/12/05 13:32:04 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/06 16:05:11 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./../push_swap.h"
 
 /* Shift down all elements of stack a by 1. The last element becomes the
 first one. */

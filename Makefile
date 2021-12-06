@@ -6,7 +6,7 @@
 #    By: khammers <khammers@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/09 16:14:10 by khammers          #+#    #+#              #
-#    Updated: 2021/12/05 16:14:34 by khammers         ###   ########.fr        #
+#    Updated: 2021/12/06 17:29:28 by khammers         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,15 +15,17 @@ CFLAGS = -Wall -Werror -Wextra
 
 NAME = push_swap
 
-SRC = main.c \
+SRC = push_swap.c \
 	utils.c \
-	ft_create_nodes.c \
+	init_stack_a.c \
 	error.c	\
 	input_testing.c	\
-	swap_operations.c	\
-	push_operations.c	\
-	rotate_operations.c	\
-	reverse_rotate_operations.c
+	./operations/swap_operations.c	\
+	./operations/push_operations.c	\
+	./operations/rotate_operations.c	\
+	./operations/reverse_rotate_operations.c	\
+	find.c	\
+	sort.c
 
 OBJECTS = $(SRC:.c=.o)
 LIBFT_OBJ = ./libft/libft.a

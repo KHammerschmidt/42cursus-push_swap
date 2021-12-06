@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 16:07:50 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/05 16:13:07 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/06 18:09:26 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,25 @@
 /* Main */
 int		main(int argc, char *argv[]);
 int		init_stack_a(char *argv[], t_list **head_a);
-int		error_handling(char **str, int j, t_list **head_a);
+int		error_handling(char *str, t_list **head_a);
 void	ft_free_lst(t_list **stack_head);
-int		check_dups(t_list **head_a, int nbr);
+int		check_dups(t_list **head_a, char *str);
 void	ft_print_node(t_list **head_a, t_list **head_b);
 void	ft_free_arr(char **arr);
 
-// int		assign_id(t_list **head_a);
+int		find_smallest(t_list **head_a);
+int		find_next_smallest(t_list **head);
+int		find_largest(t_list **head);
+int		find_next_largest(t_list **head);
 
+// int		assign_id(t_list **head_a);
+int		is_sorted(t_list **head_a);
+void	print_idx(t_list **head_a);
+int		find_median(t_list **head_a, int pos_min, int pos_max);
+int		find_value(t_list **head, int val);
+void	ft_get_indx(t_list *node, t_list **head_a);
+void	ft_sort_three(t_list **head_a);
+void	 ft_sort_five(t_list **head_a, t_list **head_b);
 
 /* Check input type int, int range & duplicates. */
 // int		ft_check_duplicates(t_list **head, t_list *node, t_struct *data);
