@@ -6,12 +6,13 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 12:07:06 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/06 18:14:37 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/07 18:11:13 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Finds the position of a certain value in a list. */
 int	find_value(t_list **head, int val)
 {
 	t_list	*node;
@@ -27,20 +28,22 @@ int	find_value(t_list **head, int val)
 	return (i);
 }
 
-int	find_median(t_list **head_a, int pos_min, int pos_max)
+/* Finds the id in the middle when using ft_sort_three(). */
+int	find_mid(t_list **head_a, int min, int max)
 {
 	t_list	*tmp;
 
 	tmp = *head_a;
 	while (tmp)
 	{
-		if (tmp->number != pos_min && tmp->number != pos_max)			//pos min / pos max
+		if (tmp->number != min && tmp->number != max)
 			return (tmp->number);
 		tmp = tmp->next;
 	}
 	return (0);
 }
 
+/* Finds the next smallest number in comparison to the smallest one. */
 int	find_next_smallest(t_list **head)
 {
 	int	min;
@@ -59,6 +62,7 @@ int	find_next_smallest(t_list **head)
 	return (min_next);
 }
 
+/* Finds the smallest number by its id and returns the id. */
 int	find_smallest(t_list **head)
 {
 	t_list	*node;
@@ -77,6 +81,7 @@ int	find_smallest(t_list **head)
 	return (min);
 }
 
+/* Finds the largest number by its id and returns the id. */
 int	find_next_largest(t_list **head)
 {
 	int	max;
@@ -113,6 +118,8 @@ int	find_largest(t_list **head)
 	return (max);
 }
 
+/* Checks if the stack is already sorted, if so returns 1
+otherwise 0. */
 int	is_sorted(t_list **head_a)
 {
 	t_list	*tmp;
