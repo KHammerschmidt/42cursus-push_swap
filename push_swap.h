@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 16:07:50 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/07 18:33:26 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/08 15:50:27 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,10 @@ void	ft_print_node(t_list **head_a, t_list **head_b);
 void	ft_free_arr(char **arr);
 
 int		find_smallest(t_list **head_a);
-int		find_next_smallest(t_list **head);
+int		find_next_smallest(t_list **head, int comp);
 int		find_largest(t_list **head);
 int		find_next_largest(t_list **head);
 
-// int		assign_id(t_list **head_a);
 int		is_sorted(t_list **head_a);
 void	print_idx(t_list **head_a);
 int		find_mid(t_list **head_a, int min, int max);
@@ -63,7 +62,12 @@ int		find_value(t_list **head, int val);
 void	ft_get_indx(t_list *node, t_list **head_a);
 void	ft_sort_three(t_list **head_a);
 void	 ft_sort_five(t_list **head_a, t_list **head_b);
-void	ft_sort_big(t_list **head_a, t_list **head_b);
+// void	ft_sort_big(t_list **head_a, t_list **head_b);
+int		find_id(t_list **head, int id);
+void	ft_sort_hundred(t_list **head_a, t_list **head_b);
+void	push_smaller_mid(t_list **head_a, t_list **head_b, int mid);
+
+void	shortest_path(t_list **head_a, t_list **head_b);
 
 /* Check input type int, int range & duplicates. */
 // int		ft_check_duplicates(t_list **head, t_list *node, t_struct *data);

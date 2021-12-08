@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 12:07:06 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/07 18:11:13 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/08 18:01:36 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,21 @@ int	find_value(t_list **head, int val)
 	i = 0;
 	node = *head;
 	while (node->number != val)
+	{
+		node = node->next;
+		i++;
+	}
+	return (i);
+}
+
+int	find_id(t_list **head, int id)
+{
+	t_list	*node;
+	int		i;
+
+	i = 0;
+	node = *head;
+	while (node->id != id)
 	{
 		node = node->next;
 		i++;
@@ -44,19 +59,17 @@ int	find_mid(t_list **head_a, int min, int max)
 }
 
 /* Finds the next smallest number in comparison to the smallest one. */
-int	find_next_smallest(t_list **head)
+int	find_next_smallest(t_list **head, int comp)
 {
-	int	min;
 	int	min_next;
 	t_list *tmp;
 
-	min = find_smallest(head);
 	tmp = *head;
-	min_next = tmp->number;
+	min_next = tmp->id;
 	while (tmp)
 	{
-		if (tmp->number < min_next && tmp->number != min)
-			min_next = tmp->number;
+		if (tmp->number < min_next && tmp->number > comp)
+			min_next = tmp->id;
 		tmp = tmp->next;
 	}
 	return (min_next);
