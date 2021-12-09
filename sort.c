@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 17:22:24 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/08 18:08:01 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/09 17:25:25 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,33 +61,51 @@ void	push_smallest(t_list **head_src, t_list **head_dst)
 
 void	push_smaller_mid(t_list **head_a, t_list **head_b, int mid)
 {
+	t_list	*tmp;
 	int		i;
-	int		j;
-	int		k;
-	int		min;
-	int		next_min;
+	int		len;
 
-	while (find_smallest(head_a) <= mid)
+	len = ft_lstsize(*head_a);
+	i = 0;
+	while (i != len + 1) //find_smallest(head_a) <= mid)
 	{
-		min = find_smallest(head_a);
-		next_min = find_next_smallest(head_a, min);
-		k = 0;
-		i = find_id(head_a, min);
-		j = find_id(head_a, next_min);
-		if (i <= mid)
-		{
-			while (k++ < i)
-				ra(head_a, 1);
+		tmp = *head_a;
+		if (tmp->id <= mid)
 			pb(head_a, head_b);
-		}
-		else if (j <= mid)
-		{
-			while (k++ < j)
-				rra(head_a, 1);
-			pb(head_a, head_b);
-		}
+		else
+			ra(head_a, 1);
+		i++;
+		ft_print_node(head_a, head_b);
 	}
 }
+
+void	push_rest(t_list **head_a, t_list **head_b)
+{
+	t_list	*tmp;
+	int		len;
+	int		i;
+
+	i = 0;
+	len = ft_lstsize(head_a);
+	tmp = *head_a;
+	while (*head_a != NULL)
+	{
+		i = find_value(head_a, find_smallest(head_a));
+		if (i-- < (len / 2))
+		{
+			while (i != 0)
+				ra(head_a, 1);
+		}
+
+	}
+}
+
+// if (i < (ft_lstsize(*head_a) / 2))
+// 	ra(head_a, 1);
+// else
+// 	rra(head_a, 1);
+// pb(head_a, head_b);
+// i = 0;
 
 void	ft_sort_hundred(t_list **head_a, t_list **head_b)
 {
@@ -95,12 +113,17 @@ void	ft_sort_hundred(t_list **head_a, t_list **head_b)
 	int		len;
 
 	len = ft_lstsize(*head_a);
-	mid = len % 2;
-	push_smaller_mid(head_a, head_b, mid);
-	while (*head_b)
-		pa(head_a, head_b);
+	mid = len / 2;
 	ft_print_node(head_a, head_b);
+	push_smaller_mid(head_a, head_b, mid);
+	// push_smaller_mid(head_a, head_b, mid);
+	// while (*head_b)
+	// 	pa(head_a, head_b);
 }
+
+
+
+
 
 void	ft_sort_five(t_list **head_a, t_list **head_b)
 {
@@ -147,6 +170,77 @@ void	ft_sort_three(t_list **head_a)
 			rra(head_a, 1);
 	}
 }
+
+// void	push_smaller_mid(t_list **head_a, t_list **head_b, int mid)
+// {
+// 	int		i;
+// 	int		j;
+// 	int		k;
+// 	int		min;
+// 	int		next_min;
+
+// 	int		moves_ra;
+// 	int		moves_rra;
+
+// 	moves_ra = 0;
+// 	moves_rra = ft_lstsize(*head_a) / 2;
+// 	t_list	*tmp;
+// 	tmp = *head_a;
+// 	while (find_smallest(head_a) <= mid)
+// 	{
+// 		while (moves_ra != (ft_lstsize(*head_a) / 2))
+// 		{
+// 			if (tmp->id < mid)
+// 			{
+		// 		moves_ra++;
+
+		// 	}
+		// 	tmp = tmp->next;
+		// }
+		// while (moves_rra != ft_lstsize(*head_a))
+		// {
+		// 	if (tmp->id < mid)
+		// 		moves_rra;
+		// 	tmp = tmp->next;
+		// }
+		// if (moves_ra < moves_rra)
+		// {
+		// 	while (k++ < i)
+		// 		ra(head_a, 1);
+		// }
+		// else
+		// {
+		// 	while (k++ < j)
+		// 		rra(head_a, 1);
+		// }
+		// pb(head_a, head_b);
+
+		// min = find_smallest(head_a);
+		// next_min = find_next_smallest(head_a, min);
+		// k = 0;
+		// i = find_id(head_a, min);
+		// j = find_id(head_a, next_min);
+		// printf(">>>>%d %d<<<<\n", i, j);
+		// if (i <= mid)
+		// {
+		// 	while (k++ < i)
+		// 		ra(head_a, 1);
+		// 	pb(head_a, head_b);
+		// 	ft_print_node(head_a, head_b);
+		// }
+		// if (j >= mid)
+		// {
+		// 	while (k++ < j)
+		// 		rra(head_a, 1);
+		// 	pb(head_a, head_b);
+		// 	ft_print_node(head_a, head_b);
+		// }
+// 	}
+// }
+
+
+
+
 
 
 

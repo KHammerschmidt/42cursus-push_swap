@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 16:07:50 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/08 15:50:27 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/09 15:18:25 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ int		find_id(t_list **head, int id);
 void	ft_sort_hundred(t_list **head_a, t_list **head_b);
 void	push_smaller_mid(t_list **head_a, t_list **head_b, int mid);
 
-void	shortest_path(t_list **head_a, t_list **head_b);
+// void	shortest_path(t_list **head_a, t_list **head_b);
+void	shortest_path(t_list **head_a, t_list **head_b, int mid);
 
 /* Check input type int, int range & duplicates. */
 // int		ft_check_duplicates(t_list **head, t_list *node, t_struct *data);
