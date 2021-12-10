@@ -6,7 +6,7 @@
 #    By: khammers <khammers@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/09 16:14:10 by khammers          #+#    #+#              #
-#    Updated: 2021/12/06 17:29:28 by khammers         ###   ########.fr        #
+#    Updated: 2021/12/10 17:07:10 by khammers         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,9 @@ SRC = push_swap.c \
 	./operations/rotate_operations.c	\
 	./operations/reverse_rotate_operations.c	\
 	find.c	\
-	sort.c
+	sort_hundred.c	\
+	sort_three.c	\
+	sort_five.c
 
 OBJECTS = $(SRC:.c=.o)
 LIBFT_OBJ = ./libft/libft.a

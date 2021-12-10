@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 16:07:50 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/09 15:18:25 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/10 18:38:32 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	 ft_sort_five(t_list **head_a, t_list **head_b);
 int		find_id(t_list **head, int id);
 void	ft_sort_hundred(t_list **head_a, t_list **head_b);
 void	push_smaller_mid(t_list **head_a, t_list **head_b, int mid);
-
+void	push_smallest_hundred(t_list **head_a, t_list **head_b, int chunk_max);
 // void	shortest_path(t_list **head_a, t_list **head_b);
 void	shortest_path(t_list **head_a, t_list **head_b, int mid);
 
