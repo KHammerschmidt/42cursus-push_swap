@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 16:07:50 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/10 18:38:32 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/11 16:50:31 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,9 @@ void	push_smaller_mid(t_list **head_a, t_list **head_b, int mid);
 void	push_smallest_hundred(t_list **head_a, t_list **head_b, int chunk_max);
 // void	shortest_path(t_list **head_a, t_list **head_b);
 void	shortest_path(t_list **head_a, t_list **head_b, int mid);
-
+void	push_smallest(t_list **head_src, t_list **head_dst);
+void	ft_sort_big(t_list **head_a, t_list **head_b);
+void	push_largest(t_list **head_a, t_list **head_b);
 /* Check input type int, int range & duplicates. */
 // int		ft_check_duplicates(t_list **head, t_list *node, t_struct *data);
 

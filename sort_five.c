@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 15:42:55 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/10 15:43:04 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/11 15:56:21 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	push_smallest(t_list **head_src, t_list **head_dst)
 		tmp = tmp->next;
 		i++;
 	}
+	if (ft_lstsize(*head_src) == 1)
+		pb(head_src, head_dst);
 	if (i >= (ft_lstsize(*head_src) / 2))
 	{
 		while (i++ != ft_lstsize(*head_src))
