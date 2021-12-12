@@ -6,12 +6,13 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 15:35:21 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/12/07 12:53:32 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/12 17:07:59 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Frees every element of a list pointed to by the stack's head. */
 void	ft_free_lst(t_list **stack_head)
 {
 	t_list	*tmp;
@@ -25,6 +26,7 @@ void	ft_free_lst(t_list **stack_head)
 	}
 }
 
+/* Frees every element of an array. */
 void	ft_free_arr(char **arr)
 {
 	int	i;
@@ -43,6 +45,7 @@ void	ft_free_arr(char **arr)
 	}
 }
 
+/* Prints both stack a and stac b next to each other. */
 void	ft_print_node(t_list **head_a, t_list **head_b)
 {
 	t_list	*tmp_node_a;
@@ -70,6 +73,7 @@ void	ft_print_node(t_list **head_a, t_list **head_b)
 	ft_putstr_fd("\n", 1);
 }
 
+/* Prints every index of an element. */
 void	print_idx(t_list **head_a)
 {
 	t_list *tmp;
@@ -77,7 +81,7 @@ void	print_idx(t_list **head_a)
 	tmp = *head_a;
 	while (tmp)
 	{
-		printf("num %d || id: %d <- id\n", tmp->number, tmp->id);
+		printf("num %d || index: %d <- index\n", tmp->number, tmp->index);
 		tmp = tmp->next;
 	}
 }

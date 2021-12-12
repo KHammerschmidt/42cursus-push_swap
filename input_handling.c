@@ -6,13 +6,14 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 09:59:24 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/06 13:07:36 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/12 16:58:30 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_dups(t_list **head_a, char *str)
+/* Checks if input holds any duplicate numbers. */
+static int	check_dups(t_list **head_a, char *str)
 {
 	int		num;
 	int		len;
@@ -36,14 +37,17 @@ int	check_dups(t_list **head_a, char *str)
 	return (0);
 }
 
-int	ft_isrange(int nbr)
+/* Check if number is in range of an int. */
+static int	ft_isrange(int nbr)
 {
 	if (nbr < INT_MIN || nbr > INT_MAX)
 		return (-1);
 	return (0);
 }
 
-int	ft_isint(char *str)
+/* Checks if input is an int, consisting of only a sign (-/+)
+and digits. */
+static int	ft_isint(char *str)
 {
 	int	i;
 
@@ -61,6 +65,28 @@ int	ft_isint(char *str)
 			i++;
 		else
 			return (-1);
+	}
+	return (0);
+}
+
+/* Checks if input is of type int or if any duplicates were detected. */
+int	error_handling(char *str, t_list **head_a)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (ft_isint(str) != 0
+			|| ft_isrange(ft_atoi(str) != 0)
+			|| check_dups(head_a, str) != 0)
+		{
+			free(str);
+			ft_free_lst(head_a);
+			write(1, "Error\n", 7);
+			exit(1);
+		}
+		i++;
 	}
 	return (0);
 }

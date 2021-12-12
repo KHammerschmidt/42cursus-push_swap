@@ -1,38 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack_a.c                                     :+:      :+:    :+:   */
+/*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:36:10 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/12/07 18:23:46 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/12 17:09:12 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	error_handling(char *str, t_list **head_a)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (ft_isint(str) != 0
-			|| ft_isrange(ft_atoi(str) != 0)
-			|| check_dups(head_a, str) != 0)
-		{
-			free(str);
-			ft_free_lst(head_a);
-			write(1, "Error\n", 7);
-			exit(1);
-		}
-		i++;
-	}
-	return (0);
-}
-
+/* Sets an index for the element's content in comparison to the already
+existing elements of the list. */
 void	ft_get_indx(t_list *node, t_list **head_a)
 {
 	t_list	*tmp;
@@ -43,12 +24,15 @@ void	ft_get_indx(t_list *node, t_list **head_a)
 	while (tmp)
 	{
 		if (node->number < tmp->number)
-			tmp->id++;
+			tmp->index++;
 		if (node->number > tmp->number)
-			node->id++;
+			node->index++;
 		tmp = tmp->next;
 	}
 }
+
+/* Splits the cmd line input and checks if it is valid. If yes, create a new
+node, adds it to the end of stack a and sets an index for the node's content. */
 
 int	init_stack_a(char *argv[], t_list **head_a)
 {

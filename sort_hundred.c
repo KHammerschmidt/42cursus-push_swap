@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 17:22:24 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/11 16:47:16 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/12 17:11:53 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,11 @@ void	push_chunk(t_list **head_a, t_list **head_b, int chunk_max)
 	while (find_smallest(head_a) <= chunk_max)
 	{
 		tmp = *head_a;
-		if (tmp->id <= chunk_max)
+		if (tmp->index <= chunk_max)
 			pb(head_a, head_b);
 		else
 			ra(head_a, 1);
 		i++;
-		// ft_print_node(head_a, head_b);
 	}
 }
 
@@ -45,7 +44,7 @@ void	push_largest(t_list **head_a, t_list **head_b)
 		*head_b = NULL;
 		return ;
 	}
-	while (tmp->id != find_largest(head_b))
+	while (tmp->index != find_largest(head_b))
 	{
 		tmp = tmp->next;
 		i++;
@@ -74,7 +73,7 @@ void	push_smallest_hundred(t_list **head_a, t_list **head_b, int chunk_max)
 	while (find_smallest(head_a) <= chunk_max)
 	{
 		tmp = *head_a;
-		if (tmp->id <= chunk_max)
+		if (tmp->index <= chunk_max)
 			pb(head_a, head_b);
 		else
 			ra(head_a, 1);
@@ -103,7 +102,7 @@ void	ft_sort_hundred(t_list **head_a, t_list **head_b)
 		push_largest(head_a, head_b);
 }
 
-// void	ft_sort_hundred(t_list **head_a, t_list **head_b)
+// void	ft_sort_hundred(t_list **head_a, t_list **head_b)			// more than 900 operations
 // {
 // 	int	len;
 // 	int	unteres_quartil;
@@ -146,104 +145,9 @@ void	ft_sort_hundred(t_list **head_a, t_list **head_b)
 // 	pa(head_a, head_b);
 // }
 
-// void	ft_sort_hundred(t_list **head_a, t_list **head_b)
-// {
-// 	int		len;
-// 	int		size;
-// 	int		chunk;
-// 	int		k;
-
-// 	size = 5;
-// 	k = 1;
-// 	len = ft_lstsize(*head_a);
-// 	chunk = len / size;
-// 	while (is_sorted(head_a) != 1 && is_sorted(head_a) != -1 && k <= size) //*head_a && k != size)
-// 	{
-// 		while (find_largest(head_b) != chunk)
-// 		{
-// 			push_chunk(head_a, head_b, chunk);
-// 			ft_print_node(head_a, head_b);
-// 		}
-// 		chunk = chunk * k;
-// 		printf("chunk >>>>%d %d\n", chunk, len);
-// 		k++;
-// 	}
-	// ft_print_node(head_a, head_b);
-	// ft_sort_three(head_a);
-	// ft_print_node(head_a, head_b);
-	// while ((*head_a)->next)
-	// 	push_smallest(head_a, head_b);
-	// while (*head_b != NULL)
-	// 	push_largest(head_a, head_b);
-	// ft_print_node(head_a, head_b);
-	// ft_print_node(head_a, head_b);
-// }
 
 
 
-// void	push_smaller_mid(t_list **head_a, t_list **head_b, int mid)
-// {
-// 	int		i;
-// 	int		j;
-// 	int		k;
-// 	int		min;
-// 	int		next_min;
-
-// 	int		moves_ra;
-// 	int		moves_rra;
-
-// 	moves_ra = 0;
-// 	moves_rra = ft_lstsize(*head_a) / 2;
-// 	t_list	*tmp;
-// 	tmp = *head_a;
-// 	while (find_smallest(head_a) <= mid)
-// 	{
-// 		while (moves_ra != (ft_lstsize(*head_a) / 2))
-// 		{
-// 			if (tmp->id < mid)
-		// 		moves_ra++;
-		// 	tmp = tmp->next;
-	// }
-		// while (moves_rra != ft_lstsize(*head_a))
-		// {
-		// 	if (tmp->id < mid)
-		// 		moves_rra;
-		// 	tmp = tmp->next;
-		// }
-		// if (moves_ra < moves_rra)
-		// {
-		// 	while (k++ < i)
-		// 		ra(head_a, 1);
-		// }
-		// else
-		// {
-		// 	while (k++ < j)
-		// 		rra(head_a, 1);
-		// }
-		// pb(head_a, head_b);
-
-		// min = find_smallest(head_a);
-		// next_min = find_next_smallest(head_a, min);
-		// k = 0;
-		// i = find_id(head_a, min);
-		// j = find_id(head_a, next_min);
-		// printf(">>>>%d %d<<<<\n", i, j);
-		// if (i <= mid)
-		// {
-		// 	while (k++ < i)
-		// 		ra(head_a, 1);
-		// 	pb(head_a, head_b);
-		// 	ft_print_node(head_a, head_b);
-		// }
-		// if (j >= mid)
-		// {
-		// 	while (k++ < j)
-		// 		rra(head_a, 1);
-		// 	pb(head_a, head_b);
-		// 	ft_print_node(head_a, head_b);
-		// }
-// 	}
-// }
 
 // void	shortest_path(t_list **head_a, t_list **head_b)
 // {

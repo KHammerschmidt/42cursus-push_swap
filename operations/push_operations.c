@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:43:48 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/12/06 16:05:05 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/12 17:00:01 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	pa(t_list **head_a, t_list **head_b)
 {
 	t_list	*element;
 
-	if (*head_b == NULL)											//check these conditions prior
+	if (*head_b == NULL)
 		return ;
 	element = *head_b;
 	if (element->next == NULL)
@@ -35,7 +35,7 @@ void	pb(t_list **head_a, t_list **head_b)
 {
 	t_list	*element;
 
-	if (*head_a == NULL)										//check these conditions prior
+	if (*head_a == NULL)
 		return ;
 	element = *head_a;
 	if (element->next == NULL)

@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 12:07:06 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/08 18:01:36 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/12 17:09:56 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ int	find_value(t_list **head, int val)
 	return (i);
 }
 
-int	find_id(t_list **head, int id)
+int	find_id(t_list **head, int index)
 {
 	t_list	*node;
 	int		i;
 
 	i = 0;
 	node = *head;
-	while (node->id != id)
+	while (node->index != index)
 	{
 		node = node->next;
 		i++;
@@ -65,11 +65,11 @@ int	find_next_smallest(t_list **head, int comp)
 	t_list *tmp;
 
 	tmp = *head;
-	min_next = tmp->id;
+	min_next = tmp->index;
 	while (tmp)
 	{
 		if (tmp->number < min_next && tmp->number > comp)
-			min_next = tmp->id;
+			min_next = tmp->index;
 		tmp = tmp->next;
 	}
 	return (min_next);
@@ -84,11 +84,11 @@ int	find_smallest(t_list **head)
 	if (!*head)
 		return (-1);
 	node = *head;
-	min = node->id;
+	min = node->index;
 	while (node)
 	{
-		if (node->id < min)
-			min = node->id;
+		if (node->index < min)
+			min = node->index;
 		node = node->next;
 	}
 	return (min);
@@ -121,11 +121,11 @@ int	find_largest(t_list **head)
 	if (!*head)
 		return (-1);
 	node = *head;
-	max = node->id;
+	max = node->index;
 	while (node)
 	{
-		if (node->id > max)
-			max = node->id;
+		if (node->index > max)
+			max = node->index;
 		node = node->next;
 	}
 	return (max);

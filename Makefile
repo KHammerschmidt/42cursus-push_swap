@@ -6,7 +6,7 @@
 #    By: khammers <khammers@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/09 16:14:10 by khammers          #+#    #+#              #
-#    Updated: 2021/12/11 16:55:54 by khammers         ###   ########.fr        #
+#    Updated: 2021/12/12 16:59:06 by khammers         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ CFLAGS = -Wall -Werror -Wextra
 NAME = push_swap
 
 SRC = push_swap.c \
+	init_stack.c	\
+	input_handling.c	\
 	utils.c \
-	init_stack_a.c \
-	input_testing.c	\
 	./operations/swap_operations.c	\
 	./operations/push_operations.c	\
 	./operations/rotate_operations.c	\

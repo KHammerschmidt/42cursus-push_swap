@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 15:42:55 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/11 15:56:21 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/12 17:10:52 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	push_smallest(t_list **head_src, t_list **head_dst)
 
 	i = 0;
 	tmp = *head_src;
-	while (tmp->id != find_smallest(head_src))
+	while (tmp->index != find_smallest(head_src))
 	{
 		tmp = tmp->next;
 		i++;
