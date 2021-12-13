@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 20:54:49 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/12/12 18:50:56 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/13 19:03:14 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	push_swap(t_list **head_a, t_list **head_b)
 	// else if (len <= 5)
 	// 	ft_sort_five(head_a, head_b);
 	// else if (len <= 100)
-	// 	ft_sort_hundred(head_a, head_b);
+	// ft_sort_hundred(head_a, head_b);
 	// else
 	ft_sort_big(head_a, head_b);
 	return (0);

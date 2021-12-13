@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 16:28:57 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/03 10:11:48 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/13 19:22:12 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_lstiter(t_list *lst, void (*f)(int))
 		return ;
 	while (lst != NULL)
 	{
-		(*f)(lst->number);
+		(*f)(lst->index);
 		lst = lst->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 17:22:24 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/12 17:11:53 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/13 18:18:34 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,14 +62,12 @@ void	push_largest(t_list **head_a, t_list **head_b)
 	pa(head_a, head_b);
 }
 
-void	push_smallest_hundred(t_list **head_a, t_list **head_b, int chunk_max)
+void	push_quartile(t_list **head_a, t_list **head_b, int chunk_max)
 {
 	t_list	*tmp;
-	int		i;
 	int		len;
 
 	len = ft_lstsize(*head_a);
-	i = 1;
 	while (find_smallest(head_a) <= chunk_max)
 	{
 		tmp = *head_a;
@@ -77,55 +75,103 @@ void	push_smallest_hundred(t_list **head_a, t_list **head_b, int chunk_max)
 			pb(head_a, head_b);
 		else
 			ra(head_a, 1);
-		i++;
 	}
 }
 
 void	ft_sort_hundred(t_list **head_a, t_list **head_b)
 {
+	int	lower_quartile;
+	int	upper_quartile;
+	int	mid;
 	int	len;
-	int	chunk;
+	t_list	*tmp;
 
+	tmp = *head_a;
 	len = ft_lstsize(*head_a);
-	chunk = (len / 5);
-
-	while (ft_lstsize(*head_a) > (len / 5) * 2)
+	mid = len / 2;
+	lower_quartile =  len / 4;
+	upper_quartile = (len / 4) * 3;
+	while (ft_lstsize(*head_a) > upper_quartile)
 	{
-		push_smallest_hundred(head_a, head_b, chunk);
-		chunk += chunk;
+		// printf("\n len >>>%d\n", ft_lstsize(*head_a));
+		if (tmp->index < lower_quartile)
+			pb(head_a, head_b);
+		else
+			ra(head_a, 1);
+		// push_quartile(head_a, head_b, lower_quartile);
+		ft_print_node(head_a, head_b);
 	}
-	while (*head_a)
-		push_smallest(head_a, head_b);
-	while (find_largest(head_b) >= (len / 5) * 4)
-		pa(head_a, head_b);
-	while (*head_b)
-		push_largest(head_a, head_b);
+	while (ft_lstsize(*head_a) > mid)
+	{
+		if (tmp->index < mid)
+			pb(head_a, head_b);
+		else
+			ra(head_a, 1);
+		ft_print_node(head_a, head_b);
+	}
+		// push_quartile(head_a, head_b, mid);
+	// while (ft_lstsize(*head_a) > lower_quartile)
+	// 	push_smallest(head_a, head_b);
+	// while (ft_lstsize(*head_a) != 0)
+	// 	push_smallest(head_a, head_b);
+	// while (find_largest(head_b) != mid)
+	// 	pa(head_a, head_b);
+	// while (*head_b)
+	// 	push_largest(head_a, head_b);
 }
 
 // void	ft_sort_hundred(t_list **head_a, t_list **head_b)			// more than 900 operations
 // {
+// 	int		quartile;
+// 	t_list	*tmp;
+
+// 	tmp = *head_a;
+// 	quartile = ft_lstsize(*head_a) / 5;
+// 	while (*head_a)
+// 	{
+// 		while (find_smallest(head_a) <= quartile && *head_a)
+// 		{
+// 			if (tmp->index <= quartile)
+// 				pb(head_a, head_b);
+// 			else
+// 				ra(head_a, 1);
+// 			ft_print_node(head_a, head_b);
+// 		}
+// 		quartile += quartile;
+// 	}
+// 	while (*head_b)
+// 		push_largest(head_a, head_b);
+// }
+
+
+			// if (ft_lstsize(*head_a) < quartile)
+			// {
+			// 	push_quartile(head_a, head_b, quartile);
+			// 	ft_print_node(head_a, head_b);
+			// }
+
+
+// void	ft_sort_hundred(t_list **head_a, t_list **head_b)
+// {
 // 	int	len;
-// 	int	unteres_quartil;
-// 	int	mid;
-// 	int	oberes_quartil;
+// 	int	chunk;
 
 // 	len = ft_lstsize(*head_a);
-// 	unteres_quartil = len / 4;
-// 	mid = len / 2;
-// 	oberes_quartil = (len / 4) * 3;
-// 	while (ft_lstsize(*head_a) > oberes_quartil)
-// 		push_smallest_hundred(head_a, head_b, unteres_quartil);
-// 	while (ft_lstsize(*head_a) > mid)
-// 		push_smallest_hundred(head_a, head_b, mid);
-// 	while (ft_lstsize(*head_a) > unteres_quartil)
+// 	chunk = (len / 5);
+
+// 	while (ft_lstsize(*head_a) > (len / 5))
+// 	{
+// 		push_smallest_hundred(head_a, head_b, chunk);
+// 		chunk += chunk;
+// 	}
+// 	while (*head_a)
 // 		push_smallest(head_a, head_b);
-// 	while (ft_lstsize(*head_a) != 0)
-// 		push_smallest(head_a, head_b);
-// 	while (find_largest(head_b) != mid)
+// 	while (find_largest(head_b) >= (len / 5) * 4)
 // 		pa(head_a, head_b);
 // 	while (*head_b)
 // 		push_largest(head_a, head_b);
 // }
+
 
 // void	ft_sort_hundred(t_list **head_a, t_list **head_b)
 // {
@@ -135,7 +181,7 @@ void	ft_sort_hundred(t_list **head_a, t_list **head_b)
 // 	len = ft_lstsize(*head_a);
 // 	mid = len / 2;
 // 	while (ft_lstsize(*head_a) > (len / 2) + 1)
-// 		push_smallest_hundred(head_a, head_b, mid);
+// 		push_percentile(head_a, head_b, mid);
 // 	while (ft_lstsize(*head_a) != 0)
 // 		push_smallest(head_a, head_b);
 // 	while (find_largest(head_b) != mid)

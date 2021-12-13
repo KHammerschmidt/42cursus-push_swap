@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 16:07:50 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/12 17:02:07 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/13 16:49:20 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,11 @@ void	push_largest(t_list **head_a, t_list **head_b);
 void		sa(t_list **head_a, int flag);
 void		sb(t_list **head_b, int flag);
 void		ss(t_list **head_a, t_list **head_b);
-
 void		pa(t_list **head_a, t_list **head_b);
 void		pb(t_list **head_a, t_list **head_b);
-
 void		ra(t_list **head_a, int flag);
 void		rb(t_list **head_b, int flag);
 void		rr(t_list **head_a, t_list **head_b);
-
 void		rra(t_list **head_a, int flag);
 void		rrb(t_list **head_b, int flag);
 void		rrr(t_list **head_a, t_list **head_b);
