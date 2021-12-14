@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 16:07:50 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/14 13:02:00 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/14 17:32:13 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,12 @@ void	ft_free_lst(t_list **stack_head);
 int		is_sorted(t_list **head_a);
 void	ft_sort_three(t_list **head_a);
 void	ft_sort_five(t_list **head_a, t_list **head_b);
-void	ft_sort_hundred(t_list **head_a, t_list **head_b);
 void	ft_sort_big(t_list **head_a, t_list **head_b);
 
 /* Pushing a specific value to the other stack. */
 void	push_smallest(t_list **head_src, t_list **head_dst);
 void	push_largest(t_list **head_a, t_list **head_b);
-void	push_percentile(t_list **head_a, t_list **head_b, int chunk_max);
+void	push_chunk(t_list **head_a, t_list **head_b, int chunk_max);
 
 /* Sorting helper, e.g. finding a specific value or smallest/largest
 number. */
@@ -52,9 +51,9 @@ int		find_smallest(t_list **head_a);
 int		find_largest(t_list **head);
 
 // void	ft_sort_big(t_list **head_a, t_list **head_b);
-void	push_smaller_mid(t_list **head_a, t_list **head_b, int mid);
-void	push_smallest_hundred(t_list **head_a, t_list **head_b, int chunk_max);
-void	shortest_path(t_list **head_a, t_list **head_b, int mid);
+// void	push_smaller_mid(t_list **head_a, t_list **head_b, int mid);
+// void	push_smallest_hundred(t_list **head_a, t_list **head_b, int chunk_max);
+// void	shortest_path(t_list **head_a, t_list **head_b, int mid);
 
 /* Push_swap functions */
 void	sa(t_list **head_a, int flag);

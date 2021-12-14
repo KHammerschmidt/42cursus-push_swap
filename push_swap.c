@@ -6,12 +6,14 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 20:54:49 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/12/14 12:59:36 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/14 17:23:42 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Calls the respective sorting algorithm in relation to the number of
+testcases. */
 int	push_swap(t_list **head_a, t_list **head_b)
 {
 	int	len;
@@ -23,8 +25,6 @@ int	push_swap(t_list **head_a, t_list **head_b)
 		ft_sort_three(head_a);
 	else if (len <= 5)
 		ft_sort_five(head_a, head_b);
-	else if (len <= 100)
-		ft_sort_hundred(head_a, head_b);
 	else
 		ft_sort_big(head_a, head_b);
 	return (0);
@@ -50,6 +50,5 @@ int	main(int argc, char *argv[])
 	}
 	push_swap(&head_a, &head_b);
 	ft_free_lst(&head_a);
-	// system("leaks push_swap");
 	return (0);
 }

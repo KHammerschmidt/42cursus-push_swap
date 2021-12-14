@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 17:43:21 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/06 13:09:53 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/14 17:47:01 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@
 ** to int representation ( * 10 + value of string - '0').
 ** (4) Return int variable multiplied by its sign.
 */
+
+#include <stdio.h>
+
 int	ft_atoi(const char *str)
 {
 	int			i;

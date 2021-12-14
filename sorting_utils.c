@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 12:07:06 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/14 13:05:54 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/14 17:23:01 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,35 @@ void	push_smallest(t_list **head_src, t_list **head_dst)
 			ra(head_src, 1);
 	}
 	pb(head_src, head_dst);
+}
+
+/* Largest number of a stack is being pushed to the other one. */
+void	push_largest(t_list **head_a, t_list **head_b)
+{
+	t_list	*tmp;
+	int		i;
+
+	i = 0;
+	tmp = *head_b;
+	if (!(*head_b)->next)
+	{
+		pa(head_a, head_b);
+		*head_b = NULL;
+		return ;
+	}
+	while (tmp->index != find_largest(head_b) && i++)
+		tmp = tmp->next;
+	if (i >= (ft_lstsize(*head_b) / 2))
+	{
+		while (i++ != ft_lstsize(*head_b))
+			rrb(head_b, 1);
+	}
+	else
+	{
+		while (i-- != 0)
+			rb(head_b, 1);
+	}
+	pa(head_a, head_b);
 }
 
 /* Checks if the stack is already sorted, if so returns 1
