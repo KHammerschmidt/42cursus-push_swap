@@ -1,79 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find.c                                             :+:      :+:    :+:   */
+/*   sorting_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 12:07:06 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/12 17:09:56 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/14 13:05:54 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/* Finds the position of a certain value in a list. */
-int	find_value(t_list **head, int val)
-{
-	t_list	*node;
-	int		i;
-
-	i = 0;
-	node = *head;
-	while (node->number != val)
-	{
-		node = node->next;
-		i++;
-	}
-	return (i);
-}
-
-int	find_id(t_list **head, int index)
-{
-	t_list	*node;
-	int		i;
-
-	i = 0;
-	node = *head;
-	while (node->index != index)
-	{
-		node = node->next;
-		i++;
-	}
-	return (i);
-}
-
-/* Finds the id in the middle when using ft_sort_three(). */
-int	find_mid(t_list **head_a, int min, int max)
-{
-	t_list	*tmp;
-
-	tmp = *head_a;
-	while (tmp)
-	{
-		if (tmp->number != min && tmp->number != max)
-			return (tmp->number);
-		tmp = tmp->next;
-	}
-	return (0);
-}
-
-/* Finds the next smallest number in comparison to the smallest one. */
-int	find_next_smallest(t_list **head, int comp)
-{
-	int	min_next;
-	t_list *tmp;
-
-	tmp = *head;
-	min_next = tmp->index;
-	while (tmp)
-	{
-		if (tmp->number < min_next && tmp->number > comp)
-			min_next = tmp->index;
-		tmp = tmp->next;
-	}
-	return (min_next);
-}
 
 /* Finds the smallest number by its id and returns the id. */
 int	find_smallest(t_list **head)
@@ -95,24 +32,6 @@ int	find_smallest(t_list **head)
 }
 
 /* Finds the largest number by its id and returns the id. */
-int	find_next_largest(t_list **head)
-{
-	int	max;
-	int	max_next;
-	t_list *tmp;
-
-	max = find_smallest(head);
-	tmp = *head;
-	max_next = tmp->number;
-	while (tmp)
-	{
-		if (tmp->number < max_next && tmp->number != max)
-			max_next = tmp->number;
-		tmp = tmp->next;
-	}
-	return (max_next);
-}
-
 int	find_largest(t_list **head)
 {
 	t_list	*node;
@@ -129,6 +48,33 @@ int	find_largest(t_list **head)
 		node = node->next;
 	}
 	return (max);
+}
+
+void	push_smallest(t_list **head_src, t_list **head_dst)
+{
+	t_list	*tmp;
+	int		i;
+
+	i = 0;
+	tmp = *head_src;
+	while (tmp->index != find_smallest(head_src))
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	if (ft_lstsize(*head_src) == 1)
+		pb(head_src, head_dst);
+	if (i >= (ft_lstsize(*head_src) / 2))
+	{
+		while (i++ != ft_lstsize(*head_src))
+			rra(head_src, 1);
+	}
+	else
+	{
+		while (i-- != 0)
+			ra(head_src, 1);
+	}
+	pb(head_src, head_dst);
 }
 
 /* Checks if the stack is already sorted, if so returns 1

@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:36:10 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/12/13 19:28:37 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/14 12:58:53 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,13 @@ void	ft_get_indx(t_list *node, t_list **head_a)
 			tmp->index++;
 		if (node->number > tmp->number)
 			node->index++;
-		// printf("%d ||||||| %d  ", tmp->index, node->index);
 		tmp = tmp->next;
 	}
 }
 
-/* Splits the cmd line input and checks if it is valid. If yes, create a new
-node, adds it to the end of stack a and sets an index for the node's content. */
-
+/* Splits the cmd line input and checks if it is valid. If yes, create
+a new node, adds it to the end of stack a and sets an index for the
+node's content. */
 int	init_stack_a(char *argv[], t_list **head_a)
 {
 	int		i;

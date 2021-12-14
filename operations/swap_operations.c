@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:14:54 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/12/06 16:05:21 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/14 12:17:36 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	sa(t_list **head_a, int flag)
 {
 	int		tmp;
 
+	if (!*head_a || !(*head_a)->next)
+		return ;
 	tmp = (*head_a)->number;
 	(*head_a)->number = (*head_a)->next->number;
 	(*head_a)->next->number = tmp;
@@ -31,6 +33,8 @@ void	sb(t_list **head_b, int flag)
 {
 	int		tmp;
 
+	if (!*head_b || !(*head_b)->next)
+		return ;
 	tmp = (*head_b)->number;
 	(*head_b)->number = (*head_b)->next->number;
 	(*head_b)->next->number = tmp;

@@ -6,12 +6,14 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 17:22:24 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/13 18:18:34 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/14 13:05:39 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* All numbers which are smaller than chunk_max are being pushed to the other
+stack. */
 void	push_chunk(t_list **head_a, t_list **head_b, int chunk_max)
 {
 	t_list	*tmp;
@@ -31,6 +33,7 @@ void	push_chunk(t_list **head_a, t_list **head_b, int chunk_max)
 	}
 }
 
+/* Largest number of a stack is being pushed to the other one. */
 void	push_largest(t_list **head_a, t_list **head_b)
 {
 	t_list	*tmp;
@@ -62,7 +65,9 @@ void	push_largest(t_list **head_a, t_list **head_b)
 	pa(head_a, head_b);
 }
 
-void	push_quartile(t_list **head_a, t_list **head_b, int chunk_max)
+/* All numbers within the percentile are being pushed to the other
+stack. */
+void	push_percentile(t_list **head_a, t_list **head_b, int chunk_max)
 {
 	t_list	*tmp;
 	int		len;
@@ -78,6 +83,34 @@ void	push_quartile(t_list **head_a, t_list **head_b, int chunk_max)
 	}
 }
 
+void	ft_print_node(t_list **head_a, t_list **head_b)
+{
+	t_list	*tmp_node_a;
+	t_list	*tmp_node_b;
+
+	tmp_node_a = *head_a;
+	tmp_node_b = *head_b;
+	printf("A				B\n");
+	printf("---				---\n");
+	while (tmp_node_a || tmp_node_b)
+	{
+		if (tmp_node_a)
+		{
+			ft_putnbr_fd(tmp_node_a->number, 1);
+			tmp_node_a = tmp_node_a->next;
+		}
+		ft_putstr_fd("				", 1);
+		if (tmp_node_b)
+		{
+			ft_putnbr_fd(tmp_node_b->number, 1);
+			tmp_node_b = (tmp_node_b)->next;
+		}
+		ft_putstr_fd("\n", 1);
+	}
+	ft_putstr_fd("\n", 1);
+}
+
+/* Sorting algorithm for numbers > 5 & <= 100. */
 void	ft_sort_hundred(t_list **head_a, t_list **head_b)
 {
 	int	lower_quartile;
@@ -99,7 +132,7 @@ void	ft_sort_hundred(t_list **head_a, t_list **head_b)
 		else
 			ra(head_a, 1);
 		// push_quartile(head_a, head_b, lower_quartile);
-		ft_print_node(head_a, head_b);
+		// ft_print_node(head_a, head_b);
 	}
 	while (ft_lstsize(*head_a) > mid)
 	{
@@ -107,7 +140,7 @@ void	ft_sort_hundred(t_list **head_a, t_list **head_b)
 			pb(head_a, head_b);
 		else
 			ra(head_a, 1);
-		ft_print_node(head_a, head_b);
+		// ft_print_node(head_a, head_b);
 	}
 		// push_quartile(head_a, head_b, mid);
 	// while (ft_lstsize(*head_a) > lower_quartile)

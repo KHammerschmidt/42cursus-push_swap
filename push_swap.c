@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 20:54:49 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/12/13 19:03:14 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/14 12:59:36 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 int	push_swap(t_list **head_a, t_list **head_b)
 {
-	// int	len;
+	int	len;
 
-	// len = ft_lstsize(*head_a);
-	// if (len == 2)
-	// 	sa(head_a, 1);
-	// else if (len == 3)
-	// 	ft_sort_three(head_a);
-	// else if (len <= 5)
-	// 	ft_sort_five(head_a, head_b);
-	// else if (len <= 100)
-	// ft_sort_hundred(head_a, head_b);
-	// else
-	ft_sort_big(head_a, head_b);
+	len = ft_lstsize(*head_a);
+	if (len == 2)
+		sa(head_a, 1);
+	else if (len == 3)
+		ft_sort_three(head_a);
+	else if (len <= 5)
+		ft_sort_five(head_a, head_b);
+	else if (len <= 100)
+		ft_sort_hundred(head_a, head_b);
+	else
+		ft_sort_big(head_a, head_b);
 	return (0);
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_list	*head_a;
 	t_list	*head_b;
@@ -50,7 +50,6 @@ int main(int argc, char *argv[])
 	}
 	push_swap(&head_a, &head_b);
 	ft_free_lst(&head_a);
-	// ft_print_node(&head_a, &head_b);			// print_idx(&head_a);
 	// system("leaks push_swap");
 	return (0);
 }

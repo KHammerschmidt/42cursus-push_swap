@@ -6,13 +6,14 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 16:48:11 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/13 20:26:51 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/14 12:51:57 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	count_bits(t_list **head_a)
+/* Counts the number of bits of each number's index and saves the maximum. */
+static int	count_bits(t_list **head_a)
 {
 	int		len;
 	int		len_max;
@@ -38,73 +39,55 @@ int	count_bits(t_list **head_a)
 	return (len_max);
 }
 
-void	ft_putnbr(int x)
+/* Flag 1: Compares if the rightmost space of the index in binary is 0 or 1.
+If 0, number is pushed to stack b, otherwise stack a rotates.
+Flag 2: Checks if the next position of the numbers on stack b holds a
+0 or 1. If 1, they are pushed back to stack a, otherwise they stay on stack
+b and b rotates. */
+static void	check_stack(t_list **head_a, t_list **head_b, int k, int flag)
 {
-	ft_putnbr_fd(x, 1);
+	int	save;
+	int	max_bits;
+
+	max_bits = count_bits(head_a);
+	if (flag == 1)
+	{
+		save = (*head_a)->index;
+		if ((((save) >> k) & 1) == 0)
+			pb(head_a, head_b);
+		else
+			ra(head_a, 1);
+	}
+	if (flag == 2)
+	{
+		save = (*head_b)->index;
+		if ((((save) >> k) & 1) != 0 || k == max_bits)
+			pa(head_a, head_b);
+		else
+			rb(head_b, 1);
+	}
 }
+
+/* Sorting algorithm for numbers > 100. Every number's index is being
+compared in binary in check_stack(). */
 void	ft_sort_big(t_list **head_a, t_list **head_b)
 {
 	t_list	*tmp;
 	int		max_bits;
 	int		j;
 	int		k;
-	int		save;
 
-	tmp = *head_a;
-	save = 0;
-	max_bits = count_bits(head_a);
-	// printf("print\n");
-	// ft_lstiter(*head_a, ft_putnbr);
-	// printf("end\n");
-	// printf(">>>>>>>>%d\n", max_bits);
 	k = 0;
-	j = ft_lstsize(*head_a);
-	// ft_print_node(head_a, head_b);
-
-	while (k < max_bits)				// k == position I want to compare
+	tmp = *head_a;
+	max_bits = count_bits(head_a);
+	while (k < max_bits)
 	{
-		while (j-- > 0 && is_sorted(head_a) == 0)
-		{
-			save = (*head_a)->index;
-			// printf("<<<<<<%d", save);
-			if ((((save) >> k) & 1) == 0)
-				pb(head_a, head_b);
-			else
-				ra(head_a, 1);
-			// ft_print_node(head_a, head_b);
-		}
-		k++;
-		int d = ft_lstsize(*head_b);
-		// int save_a;
-		while (d-- != 0)
-		{
-			save = (*head_b)->index;
-			if ((((save) >> k) & 1) != 0 || k == max_bits)
-				pa(head_a, head_b);
-			else
-				rb(head_b, 1);
-			// ft_print_node(head_a, head_b);
-		}
 		j = ft_lstsize(*head_a);
+		while (j-- > 0 && is_sorted(head_a) == 0)
+			check_stack(head_a, head_b, k, 1);
+		k++;
+		j = ft_lstsize(*head_b);
+		while (j-- != 0)
+			check_stack(head_a, head_b, k, 2);
 	}
-		//long bitshifting loops
-	// https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e
-
-	// int	len;
-	// int	chunk;
-
-	// len = ft_lstsize(*head_a);
-	// chunk = (len / 11);
-
-	// while (ft_lstsize(*head_a) > (len / 11) * 9)
-	// {
-	// 	push_smallest_hundred(head_a, head_b, chunk);
-	// 	chunk += chunk;
-	// }
-	// while (*head_a)
-	// 	push_smallest(head_a, head_b);
-	// while (find_largest(head_b) >= (len / 11) * 9)
-	// 	pa(head_a, head_b);
-	// while (*head_b)
-	// 	push_largest(head_a, head_b);
 }
