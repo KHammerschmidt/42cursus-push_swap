@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 20:54:49 by katharinaha       #+#    #+#             */
-/*   Updated: 2021/12/14 17:23:42 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/15 09:52:56 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,7 @@ int	main(int argc, char *argv[])
 	head_a = NULL;
 	head_b = NULL;
 	if (argc < 2)
-	{
-		ft_putstr_fd("Error. Invalid number of arguments.\n", 1);
-		return (EXIT_FAILURE);
-	}
+		return (1);
 	init_stack_a(argv, &head_a);
 	if (is_sorted(&head_a) == 1)
 	{

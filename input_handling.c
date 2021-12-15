@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 09:59:24 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/14 17:48:36 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/15 09:50:48 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,6 @@ static int	check_dups(t_list **head_a, char *str)
 		i++;
 	}
 	return (0);
-}
-
-/* Check if number is in range of an int. */
-static int	ft_isrange(long nbr)
-{
-		// put in str and check every position if its larger or smaller than an int
-	// // printf(" ft_isrange -->%ld  ", nbr);
-	// if (nbr < INT_MIN || nbr > INT_MAX)
-	// 	return (-1);
-	// return (0);
 }
 
 /* Checks if input is an int, consisting of only a sign (-/+)
@@ -77,12 +67,10 @@ int	error_handling(char *str, t_list **head_a)
 	int	i;
 
 	i = 0;
-		// || (ft_atoi(str) == 0 && str[i] != 0 + '0')
 	while (str[i])
 	{
-		// printf(">>>%d ", ft_atoi(&str[i]));
 		if (ft_isint(str) != 0
-			|| ft_isrange(ft_atoi(str) != 0)
+			|| (ft_atoi(str) == 0 && str[i] != (0 + '0'))
 			|| check_dups(head_a, str) != 0)
 		{
 			free(str);
