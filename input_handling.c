@@ -6,11 +6,12 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 09:59:24 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/15 09:50:48 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/15 13:09:53 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 /* Checks if input holds any duplicate numbers. */
 static int	check_dups(t_list **head_a, char *str)
@@ -23,12 +24,12 @@ static int	check_dups(t_list **head_a, char *str)
 	i = 0;
 	len = ft_lstsize(*head_a);
 	if (len <= 1)
-		return (0);
+		return (-1);
 	num = ft_atoi(str);
 	tmp_node = *head_a;
 	while (tmp_node)
 	{
-		if (tmp_node->number == num && i != (len - 1))
+		if (tmp_node->number == num && i < len)
 			return (-1);
 		else
 			tmp_node = tmp_node->next;

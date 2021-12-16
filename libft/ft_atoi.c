@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 17:43:21 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/15 09:50:16 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/15 10:04:43 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,7 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	while ((str[i] >= '0') && (str[i] <= '9'))
-	{
-		result = result * 10 + str[i] - '0';
-		i++;
-	}
+		result = result * 10 + str[i++] - '0';
 	if (result * sign < -2147483648)
 		return (0);
 	if (result * sign > 2147483647)

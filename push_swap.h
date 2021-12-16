@@ -6,7 +6,7 @@
 /*   By: khammers <khammers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 16:07:50 by khammers          #+#    #+#             */
-/*   Updated: 2021/12/14 17:32:13 by khammers         ###   ########.fr       */
+/*   Updated: 2021/12/15 10:10:31 by khammers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,8 @@
 # define PUSH_SWAP_H
 
 # include "./libft/libft.h"
-# include <stdio.h>
-// # include <limits.h>
 # include <unistd.h>
 # include <stdlib.h>
-
-# define INT_MIN -2147483648
-# define INT_MAX 2147483647
 
 int		main(int argc, char *argv[]);
 int		push_swap(t_list **head_a, t_list **head_b);
@@ -40,20 +35,12 @@ void	ft_sort_three(t_list **head_a);
 void	ft_sort_five(t_list **head_a, t_list **head_b);
 void	ft_sort_big(t_list **head_a, t_list **head_b);
 
-/* Pushing a specific value to the other stack. */
+/* Sorting helpers, e.g. finding a specific value and pushing it to the
+other stacak. */
 void	push_smallest(t_list **head_src, t_list **head_dst);
 void	push_largest(t_list **head_a, t_list **head_b);
-void	push_chunk(t_list **head_a, t_list **head_b, int chunk_max);
-
-/* Sorting helper, e.g. finding a specific value or smallest/largest
-number. */
 int		find_smallest(t_list **head_a);
 int		find_largest(t_list **head);
-
-// void	ft_sort_big(t_list **head_a, t_list **head_b);
-// void	push_smaller_mid(t_list **head_a, t_list **head_b, int mid);
-// void	push_smallest_hundred(t_list **head_a, t_list **head_b, int chunk_max);
-// void	shortest_path(t_list **head_a, t_list **head_b, int mid);
 
 /* Push_swap functions */
 void	sa(t_list **head_a, int flag);
