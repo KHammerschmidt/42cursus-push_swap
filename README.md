@@ -14,10 +14,10 @@
 </p>
 
 <p align="center">
-	<img alt="Github repo size" src="https://img.shields.io/github/repo-size/KHammerschmidt/42cursus-get_next_line?color=red"/>
-	<img alt="Number of lines in code" src="https://img.shields.io/tokei/lines/github/KHammerschmidt/42cursus-get_next_line?color=blueviolet"/>
-	<img alt="Languages used in repo" src="https://img.shields.io/github/languages/count/KHammerschmidt/42cursus-get_next_line?color=silver"/>
-	<img alt="Top used progamming language" src="https://img.shields.io/github/languages/top/KHammerschmidt/42cursus-get_next_line?color=gold"/>	
+	<img alt="Github repo size" src="https://img.shields.io/github/repo-size/KHammerschmidt/42cursus-push_swap?color=dark%20dark%20green"/>
+	<img alt="Number of lines in code" src="https://img.shields.io/tokei/lines/github/KHammerschmidt/42cursus-push_swap"/>
+	<img alt="Languages used in repo" src="https://img.shields.io/github/languages/count/KHammerschmidt/42cursus-push_swap?color=purple"/>
+	<img alt="Top used progamming language" src="https://img.shields.io/github/languages/top/KHammerschmidt/42cursus-push_swap?color=white"/>	
 </p>
 
 
