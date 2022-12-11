@@ -37,7 +37,7 @@ There are 2 stacks: a contains a random amount of negative and/or positive numbe
 </br>
 
 
-##&  :octocat: Sorting operations overview
+###  :octocat: Sorting operations overview
 The following operations were allowed when sorting the stack:
 |     Operation    |   What is does                                                |
 |------------------|---------------------------------------------------------------|
