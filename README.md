@@ -99,19 +99,19 @@ Example:
 
 ##  :octocat: Sorting operations overview
 The following operations were allowed when sorting the stack:
-|     Operation    |   What is does                                                                                                |
-|------------------|------------------------------------------------|
-|      [`sa`]      | swap first two elements of stack a             |
-|      [`sb`]      | swap first two elements of stack b             |
-|      [`ss`]      | perform sa and sb simultaneously               | 
-|      [`pa`]      | push first element of a to top of stack b      |
-|      [`pb`]      | push first element of b to top of stack a      |
-|      [`ra`]      | shifts up all elements on stack a by 1.        |
-|      [`rb`]      | shift up all elements on stack b by 1.         |
-|      [`rr`]      | performs ra and rb simultaneously              |
-|     [`rra`]      | reverse rotate stack a (shift down by 1)       |
-|     [`rrb`]      | reverse rotate stack b (shift down by 1)       |
-|     [`rrr`]      | performs rra and rrb simultaneously            |
+|     Operation    |   What is does                                                |
+|------------------|---------------------------------------------------------------|
+|[`sa`]            | swap first two elements of stack a                            |
+|[`sb`]            | swap first two elements of stack b                            |
+|[`ss`]            | perform sa and sb simultaneously                              | 
+|[`pa`]            | push first element of a to top of stack b                     |
+|[`pb`]            | push first element of b to top of stack a                     |
+|[`ra`]            | shifts up all elements on stack a by 1.                       |
+|[`rb`]            | shift up all elements on stack b by 1.                        |
+|[`rr`]            | performs ra and rb simultaneously                             |
+|[`rra`]           | reverse rotate stack a (shift down by 1)                      |
+|[`rrb`]           | reverse rotate stack b (shift down by 1)                      |
+|[`rrr`]           | performs rra and rrb simultaneously                           |
 </br>
 
 
